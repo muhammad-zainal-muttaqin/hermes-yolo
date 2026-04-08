@@ -1,0 +1,27 @@
+{
+  "id": "STRUCT_010",
+  "name": "LabelSmoothingAdaptive",
+  "description": "Class-specific label smoothing based on confusion difficulty",
+  "structural_change": "Custom loss function with per-class smoothing coefficients",
+  "rationale": "B2/B3 need more smoothing (high confusion), B1 needs less (easy)",
+  "target_problem": "B2/B3 overconfidence in wrong predictions",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 8,
+  "seed": 42,
+  "novel_components": [
+    "adaptive_label_smoothing",
+    "class_specific_loss",
+    "confusion_aware"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0,
+    "label_smoothing": 0.0
+  },
+  "timestamp": "2026-04-08T16:45:43.866532"
+}
