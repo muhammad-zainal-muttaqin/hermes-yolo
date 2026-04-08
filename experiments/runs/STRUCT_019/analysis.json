@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_019",
+  "map50": 0.5113594195102693,
+  "structural_change": "Add P2 level detection head for small B4 objects (requires model surgery)",
+  "target_problem": "B4 small object detection",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
