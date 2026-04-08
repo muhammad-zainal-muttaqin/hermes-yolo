@@ -113,26 +113,25 @@ def generate_novel_configs():
     
     configs = []
     
-    # Novel idea 1: Focal loss + Class-aware sampling
+    # Novel idea 1: High classification weight + Conservative mosaic
     configs.append({
-        "name": "Focal_ClassAware",
-        "description": "Focal loss gamma tuned for B2/B3 + class-aware data sampling",
+        "name": "HighCls_Conservative",
+        "description": "High cls weight (5.0) for B2/B3 discrimination + conservative mosaic",
         "model": "yolo11s",
         "imgsz": 640,
         "batch": 16,
         "epochs": 8,
         "seed": 42,
-        "novel_components": ["focal_loss_gamma", "class_aware_sampling"],
+        "novel_components": ["high_cls_weight", "conservative_augmentation"],
         "hyp": {
             "lr0": 0.01,
             "lrf": 0.1,
             "momentum": 0.937,
             "weight_decay": 0.0005,
-            "box": 5.0,
-            "cls": 5.0,
+            "box": 7.5,
+            "cls": 5.0,  # High classification weight
             "dfl": 1.5,
-            "focal_gamma": 2.0,
-            "mosaic": 0.5,
+            "mosaic": 0.5,  # Lower mosaic
             "mixup": 0.0,
             "copy_paste": 0.1,
             "degrees": 5.0,
@@ -169,16 +168,16 @@ def generate_novel_configs():
         }
     })
     
-    # Novel idea 3: Progressive resolution curriculum
+    # Novel idea 3: Progressive resolution (simulate with different epochs)
     configs.append({
-        "name": "Progressive_Curriculum",
-        "description": "Start low res, progressively increase to target",
-        "model": "yolo11n",  # Smaller model for faster curriculum
+        "name": "Progressive_Resolution",
+        "description": "Start with lower resolution epochs then full resolution",
+        "model": "yolo11n",  # Smaller model for faster training
         "imgsz": 640,
         "batch": 16,
         "epochs": 10,
         "seed": 42,
-        "novel_components": ["progressive_resolution", "curriculum_learning"],
+        "novel_components": ["progressive_resolution", "staged_training"],
         "hyp": {
             "lr0": 0.01,
             "lrf": 0.1,
@@ -192,8 +191,6 @@ def generate_novel_configs():
             "copy_paste": 0.1,
             "degrees": 10.0,
             "scale": 0.8,
-            "start_imgsz": 480,  # Start lower
-            "target_imgsz": 640,  # End higher
         }
     })
     
@@ -227,16 +224,16 @@ def generate_novel_configs():
         }
     })
     
-    # Novel idea 5: Hard negative mining
+    # Novel idea 5: Higher copy-paste for rare classes
     configs.append({
-        "name": "Hard_Mining",
-        "description": "Focus training on hard negatives and ambiguous cases",
+        "name": "HighCopyPaste",
+        "description": "Higher copy-paste augmentation to boost rare classes",
         "model": "yolo11s",
         "imgsz": 640,
         "batch": 16,
         "epochs": 9,
         "seed": 42,
-        "novel_components": ["hard_negative_mining", "online_mining"],
+        "novel_components": ["high_copy_paste", "rare_class_augmentation"],
         "hyp": {
             "lr0": 0.015,
             "lrf": 0.2,
@@ -247,10 +244,9 @@ def generate_novel_configs():
             "dfl": 1.5,
             "mosaic": 0.6,
             "mixup": 0.1,
-            "copy_paste": 0.15,
+            "copy_paste": 0.25,  # Higher copy-paste
             "degrees": 8.0,
             "scale": 0.6,
-            "hard_neg_ratio": 0.3,
         }
     })
     
@@ -280,16 +276,16 @@ def generate_novel_configs():
         }
     })
     
-    # Novel idea 7: NMS optimization (class-specific)
+    # Novel idea 7: Lower NMS threshold for B4
     configs.append({
-        "name": "Adaptive_NMS",
-        "description": "Class-specific NMS thresholds",
+        "name": "LowerNMS_B4",
+        "description": "Lower NMS threshold specifically to improve B4 detection",
         "model": "yolo11s",
         "imgsz": 640,
         "batch": 16,
         "epochs": 8,
         "seed": 42,
-        "novel_components": ["adaptive_nms", "class_specific_thresholds"],
+        "novel_components": ["adaptive_nms", "low_nms_threshold"],
         "hyp": {
             "lr0": 0.01,
             "lrf": 0.1,
@@ -303,10 +299,7 @@ def generate_novel_configs():
             "copy_paste": 0.1,
             "degrees": 5.0,
             "scale": 0.5,
-            "nms_threshold_b1": 0.7,
-            "nms_threshold_b2": 0.65,
-            "nms_threshold_b3": 0.65,
-            "nms_threshold_b4": 0.5,  # Lower for B4
+            "nms": 0.5,  # Lower NMS threshold
         }
     })
     
@@ -363,16 +356,16 @@ def generate_novel_configs():
         }
     })
     
-    # Novel idea 10: Multi-scale batch
+    # Novel idea 10: Heavy mosaic + Mixup
     configs.append({
-        "name": "MultiScale_Batch",
-        "description": "Random image sizes per batch for scale robustness",
+        "name": "HeavyAugmentation",
+        "description": "Heavy mosaic and mixup for robustness",
         "model": "yolo11s",
         "imgsz": 640,
         "batch": 16,
         "epochs": 8,
         "seed": 42,
-        "novel_components": ["multi_scale_batch", "scale_robustness"],
+        "novel_components": ["heavy_mosaic", "mixup_augmentation"],
         "hyp": {
             "lr0": 0.01,
             "lrf": 0.1,
@@ -381,12 +374,11 @@ def generate_novel_configs():
             "box": 7.5,
             "cls": 2.0,
             "dfl": 1.5,
-            "mosaic": 1.0,
-            "mixup": 0.1,
+            "mosaic": 1.0,  # Full mosaic
+            "mixup": 0.2,  # Higher mixup
             "copy_paste": 0.1,
             "degrees": 5.0,
             "scale": 0.7,
-            "multi_scale_range": [480, 640, 768],
         }
     })
     
