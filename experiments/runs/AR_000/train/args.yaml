@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolo11s.pt
-data: /workspace/Hermes-YOLO/experiments/runs/AR_000/data.yaml
+data: /workspace/Hermes-YOLO/dataset.yaml
 epochs: 8
 time: null
 patience: 100

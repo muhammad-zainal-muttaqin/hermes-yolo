@@ -100,3 +100,5 @@ Starting training for 8 epochs...
                    all        604       2786      0.442      0.565      0.477      0.217
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        7/8      4.23G      1.801      15.73      1.472         95        640: 100% ━━━━━━━━━━━━ 173/173 8.0it/s 21.6s
+[2026-04-08 15:46:12] Interrupted
