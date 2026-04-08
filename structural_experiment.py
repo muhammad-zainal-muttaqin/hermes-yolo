@@ -281,12 +281,26 @@ def train_with_structure(config, exp_dir):
     if "copy_paste" in config["hyp"]:
         hyp["copy_paste"] = config["hyp"]["copy_paste"]
     
-    # Train
+    # Train with SAFE batch size (prevent OOM)
+    # RTX A4500 has 20GB VRAM - safe batch sizes:
+    # - 640px: batch=16 (uses ~4-5GB)
+    # - 768px: batch=8 (uses ~5-6GB)
+    # - 1024px: batch=4 (would use ~7-8GB)
+    
+    if config["imgsz"] <= 640:
+        batch_size = 12  # Conservative for safety
+    elif config["imgsz"] <= 768:
+        batch_size = 6   # Conservative for safety
+    else:
+        batch_size = 4   # Very safe for high res
+    
+    print(f"   🎛️ Safe batch size: {batch_size} (imgsz={config['imgsz']})")
+    
     results = model.train(
         data="/workspace/Hermes-YOLO/dataset.yaml",
         epochs=config["epochs"],
         imgsz=config["imgsz"],
-        batch=16 if config["imgsz"] <= 640 else 8,  # Batch by memory, not tuning
+        batch=batch_size,  # CONSERVATIVE - OOM prevention
         seed=42,
         project=str(exp_dir),
         name="train",

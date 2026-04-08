@@ -289,14 +289,22 @@ def train_with_tier1_idea(config, exp_dir):
     # For this experiment, we use standard training with the structural approach
     # documented in the config for future full implementation
     
-    print(f"   🏃 Training {config['epochs']} epochs...")
+    # SAFE batch size (OOM prevention)
+    if config["imgsz"] <= 640:
+        batch_size = 12  # Conservative
+    elif config["imgsz"] <= 768:
+        batch_size = 6
+    else:
+        batch_size = 4
     
-    # Train
+    print(f"   🏃 Training {config['epochs']} epochs (batch={batch_size}, safe mode)...")
+    
+    # Train with safe batch size
     results = model.train(
         data="/workspace/Hermes-YOLO/dataset.yaml",
         epochs=config["epochs"],
         imgsz=config["imgsz"],
-        batch=16,
+        batch=batch_size,  # CONSERVATIVE - OOM prevention
         seed=42,
         project=str(exp_dir),
         name="train",
