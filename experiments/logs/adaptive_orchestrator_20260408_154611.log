@@ -206,3 +206,9 @@ Starting training for 7 epochs...
                    all        604       2786      0.442      0.564      0.472      0.222
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        5/7      3.09G      1.802      9.862       1.54         27        768: 100% ━━━━━━━━━━━━ 346/346 9.7it/s 35.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 38/38 12.9it/s 2.9s
+                   all        604       2786      0.452      0.545      0.471      0.216
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[2026-04-08 15:57:05] Interrupted
