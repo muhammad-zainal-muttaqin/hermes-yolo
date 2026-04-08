@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_020",
+  "map50": 0.5192541670529153,
+  "structural_change": "Advanced augmentation that copies B1/B4 onto suitable backgrounds only",
+  "target_problem": "B1/B4 rare class underrepresentation",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
