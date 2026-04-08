@@ -1,0 +1,26 @@
+{
+  "id": "STRUCT_009",
+  "name": "HardNegativeMining",
+  "description": "Online hard negative mining focusing on B2/B3 confusion pairs",
+  "structural_change": "Custom dataloader that selects hard examples based on loss magnitude",
+  "rationale": "Focus learning capacity on ambiguous cases that model gets wrong",
+  "target_problem": "B2/B3 confusion - prioritize hardest examples",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "novel_components": [
+    "online_hard_mining",
+    "loss_based_sampling",
+    "confusion_pair_focus"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "timestamp": "2026-04-08T16:40:11.156593"
+}
