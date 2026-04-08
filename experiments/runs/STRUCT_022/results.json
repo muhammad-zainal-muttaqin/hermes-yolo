@@ -1,0 +1,8 @@
+{
+  "map50": 0.5051884402392878,
+  "map50_95": 0.24114755083119785,
+  "precision": 0.5020626148937687,
+  "recall": 0.577059493823374,
+  "epoch": 6,
+  "best_pt": "/workspace/Hermes-YOLO/experiments/runs/STRUCT_022/train/weights/best.pt"
+}
