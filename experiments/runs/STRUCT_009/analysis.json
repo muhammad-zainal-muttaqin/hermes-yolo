@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_009",
+  "map50": 0.5212063705860319,
+  "structural_change": "Custom dataloader that selects hard examples based on loss magnitude",
+  "target_problem": "B2/B3 confusion - prioritize hardest examples",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
