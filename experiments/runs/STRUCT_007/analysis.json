@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_007",
+  "map50": 0.49768033443398285,
+  "structural_change": "Monte Carlo Dropout during training for uncertainty quantification",
+  "target_problem": "B2/B3 ambiguity detection and handling",
+  "success": false,
+  "notes": [
+    "Structural change insufficient - need more fundamental approach"
+  ]
+}

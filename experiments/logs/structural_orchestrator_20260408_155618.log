@@ -925,3 +925,7 @@ YOLO11s summary (fused): 101 layers, 9,414,348 parameters, 0 gradients, 21.3 GFL
                     B4        329        554      0.375      0.395      0.312      0.121
 Speed: 0.1ms preprocess, 1.2ms inference, 0.0ms loss, 0.9ms postprocess per image
 Results saved to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_007/train[0m
+   ✅ mAP50: 0.4977
+SUCCESS:0.4977
+[2026-04-08 16:35:16]    ✅ STRUCT_007 completed: mAP50=0.4977
+[2026-04-08 16:35:16]    📤 Pushing to GitHub...
