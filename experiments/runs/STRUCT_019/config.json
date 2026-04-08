@@ -1,0 +1,26 @@
+{
+  "id": "STRUCT_019",
+  "name": "SmallObjectFPN",
+  "description": "Enhanced feature pyramid with explicit small object pathway",
+  "structural_change": "Add P2 level detection head for small B4 objects (requires model surgery)",
+  "rationale": "B4 is smallest - need finer resolution feature maps",
+  "target_problem": "B4 small object detection",
+  "model": "yolo11s",
+  "imgsz": 768,
+  "epochs": 8,
+  "seed": 42,
+  "novel_components": [
+    "enhanced_fpn",
+    "p2_detection_head",
+    "small_object_pathway"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "timestamp": "2026-04-08T17:32:53.765975"
+}

@@ -2221,3 +2221,114 @@ Results saved to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_018/train[0
 SUCCESS:0.5036
 [2026-04-08 17:32:39]    ✅ STRUCT_018 completed: mAP50=0.5036
 [2026-04-08 17:32:39]    📤 Pushing to GitHub...
+[2026-04-08 17:32:53] 
+[2026-04-08 17:32:53] 🧪 STRUCT_019 - STRUCTURAL EXPERIMENT
+[2026-04-08 17:32:53]    Time remaining: 383 minutes
+🧪 STRUCT_019: SmallObjectFPN
+   🔬 Structural: Add P2 level detection head for small B4 objects (requires model surgery)
+   🎯 Target: B4 small object detection
+   🔧 Using 768px for small object detection
+   🎛️ Safe batch size: 6 (imgsz=768)
+New https://pypi.org/project/ultralytics/8.4.36 available 😃 Update with 'pip install -U ultralytics'
+Ultralytics 8.4.35 🚀 Python-3.11.10 torch-2.4.1+cu124 CUDA:0 (NVIDIA RTX A4500, 20053MiB)
+[34m[1mengine/trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=6, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/workspace/Hermes-YOLO/dataset.yaml, degrees=0.0, deterministic=True, device=None, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, end2end=None, epochs=8, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=768, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.1, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11s.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=train, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/workspace/Hermes-YOLO/experiments/runs/STRUCT_019, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=/workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=4
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       928  ultralytics.nn.modules.conv.Conv             [3, 32, 3, 2]                 
+  1                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  2                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  3                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  4                  -1  1    103360  ultralytics.nn.modules.block.C3k2            [128, 256, 1, False, 0.25]    
+  5                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+  6                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  7                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  8                  -1  1   1380352  ultralytics.nn.modules.block.C3k2            [512, 512, 1, True]           
+  9                  -1  1    656896  ultralytics.nn.modules.block.SPPF            [512, 512, 5]                 
+ 10                  -1  1    990976  ultralytics.nn.modules.block.C2PSA           [512, 512, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    443776  ultralytics.nn.modules.block.C3k2            [768, 256, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1    127680  ultralytics.nn.modules.block.C3k2            [512, 128, 1, False]          
+ 17                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1    345472  ultralytics.nn.modules.block.C3k2            [384, 256, 1, False]          
+ 20                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1   1511424  ultralytics.nn.modules.block.C3k2            [768, 512, 1, True]           
+ 23        [16, 19, 22]  1    820956  ultralytics.nn.modules.head.Detect           [4, 16, None, [128, 256, 512]]
+YOLO11s summary: 182 layers, 9,429,340 parameters, 9,429,324 gradients, 21.6 GFLOPs
+
+Transferred 493/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[34m[1mAMP: [0mchecks passed ✅
+[34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3686.4±2855.9 MB/s, size: 565.0 KB)
+
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3924.7±3051.3 MB/s, size: 625.6 KB)
+
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.000515625), 87 bias(decay=0.0)
+Plotting labels to /workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train/labels.jpg... 
+Image sizes 768 train, 768 val
+Using 8 dataloader workers
+Logging results to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train[0m
+Starting training for 8 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        1/8      2.32G      2.014      2.314      1.705         22        768: 100% ━━━━━━━━━━━━ 461/461 9.2it/s 50.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 16.2it/s 3.2s
+                   all        604       2786      0.391        0.5      0.403      0.177
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        2/8      2.46G      1.898      1.824      1.549         13        768: 100% ━━━━━━━━━━━━ 461/461 9.6it/s 48.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.0it/s 3.0s
+                   all        604       2786      0.439      0.545      0.445      0.202
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        3/8      2.46G      1.877      1.771      1.539         42        768: 100% ━━━━━━━━━━━━ 461/461 10.0it/s 46.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.2it/s 3.0s
+                   all        604       2786      0.402      0.567      0.461       0.21
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        4/8      2.46G      1.848      1.734      1.508         36        768: 100% ━━━━━━━━━━━━ 461/461 9.9it/s 46.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.6it/s 2.9s
+                   all        604       2786      0.442       0.55      0.461      0.217
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        5/8      2.46G      1.833      1.682      1.497         23        768: 100% ━━━━━━━━━━━━ 461/461 10.3it/s 44.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.5it/s 2.9s
+                   all        604       2786      0.448      0.568      0.471       0.22
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        6/8      2.46G      1.799      1.629      1.468         30        768: 100% ━━━━━━━━━━━━ 461/461 10.5it/s 43.7s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 15.4it/s 3.3s
+                   all        604       2786      0.459      0.588      0.487      0.238
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        7/8      2.46G      1.777      1.596      1.457         31        768: 100% ━━━━━━━━━━━━ 461/461 10.4it/s 44.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.6it/s 2.9s
+                   all        604       2786      0.473      0.583      0.497      0.231
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        8/8      2.46G      1.758      1.569      1.452         37        768: 100% ━━━━━━━━━━━━ 461/461 10.1it/s 45.6s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 17.6it/s 2.9s
+                   all        604       2786       0.48      0.596      0.511      0.248
+
+8 epochs completed in 0.112 hours.
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train/weights/last.pt, 19.2MB
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train/weights/best.pt, 19.2MB
+
+Validating /workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train/weights/best.pt...
+Ultralytics 8.4.35 🚀 Python-3.11.10 torch-2.4.1+cu124 CUDA:0 (NVIDIA RTX A4500, 20053MiB)
+YOLO11s summary (fused): 101 layers, 9,414,348 parameters, 0 gradients, 21.3 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 51/51 13.1it/s 3.9s
+                   all        604       2786      0.481      0.596      0.511      0.248
+                    B1        252        301      0.607      0.837      0.782      0.422
+                    B2        364        612      0.405      0.539      0.387      0.194
+                    B3        533       1319      0.527      0.618      0.547      0.252
+                    B4        329        554      0.384      0.391       0.33      0.125
+Speed: 0.1ms preprocess, 1.8ms inference, 0.0ms loss, 0.9ms postprocess per image
+Results saved to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_019/train[0m
