@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_018",
+  "map50": 0.5035701740031259,
+  "structural_change": "Custom loss function with per-class smoothing coefficients",
+  "target_problem": "B2/B3 overconfidence in wrong predictions",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
