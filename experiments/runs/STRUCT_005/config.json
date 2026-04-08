@@ -1,0 +1,26 @@
+{
+  "id": "STRUCT_005",
+  "name": "DomainStratified",
+  "description": "Domain-aware training with explicit DAMIMAS/LONSUM balancing",
+  "structural_change": "Stratified sampling ensuring balanced domain representation per batch",
+  "rationale": "Address domain imbalance explicitly in data loading",
+  "target_problem": "Domain imbalance 90% DAMIMAS / 10% LONSUM",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "novel_components": [
+    "domain_stratified_sampling",
+    "balanced_domain_batch",
+    "domain_aware"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "timestamp": "2026-04-08T16:21:46.500282"
+}
