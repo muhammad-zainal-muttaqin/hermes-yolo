@@ -318,3 +318,32 @@ Starting training for 8 epochs...
                    all        604       2786      0.468      0.584      0.485      0.228
 
       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        6/8      4.24G      1.814      1.587      1.388         86        640: 100% ━━━━━━━━━━━━ 173/173 8.0it/s 21.6s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.0it/s 2.1s
+                   all        604       2786      0.456      0.572      0.485      0.228
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        7/8      4.24G      1.778      1.545      1.376         99        640: 100% ━━━━━━━━━━━━ 173/173 8.1it/s 21.3s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 8.2it/s 2.3s
+                   all        604       2786      0.466      0.572      0.499      0.231
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        8/8      4.24G      1.752      1.503      1.372        105        640: 100% ━━━━━━━━━━━━ 173/173 7.9it/s 21.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.0it/s 2.1s
+                   all        604       2786      0.461      0.586      0.504      0.239
+
+8 epochs completed in 0.057 hours.
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_002/train/weights/last.pt, 19.2MB
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_002/train/weights/best.pt, 19.2MB
+
+Validating /workspace/Hermes-YOLO/experiments/runs/STRUCT_002/train/weights/best.pt...
+Ultralytics 8.4.35 🚀 Python-3.11.10 torch-2.4.1+cu124 CUDA:0 (NVIDIA RTX A4500, 20053MiB)
+YOLO11s summary (fused): 101 layers, 9,414,348 parameters, 0 gradients, 21.3 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 5.7it/s 3.3s
+                   all        604       2786      0.461      0.585      0.504      0.239
+                    B1        252        301      0.567      0.837      0.785      0.409
+                    B2        364        612      0.411      0.443       0.37      0.179
+                    B3        533       1319      0.495      0.669      0.539      0.248
+                    B4        329        554      0.371      0.392      0.322      0.121
+Speed: 0.1ms preprocess, 1.2ms inference, 0.0ms loss, 0.7ms postprocess per image
+Results saved to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_002/train[0m
