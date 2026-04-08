@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_014",
+  "map50": 0.5051884402392878,
+  "structural_change": "Multi-model architecture with disagreement-based weighting",
+  "target_problem": "Single model limitations - ensemble for robustness",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
