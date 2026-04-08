@@ -504,3 +504,76 @@ YOLO11s summary: 182 layers, 9,429,340 parameters, 9,429,324 gradients, 21.6 GFL
 Transferred 493/499 items from pretrained weights
 Freezing layer 'model.23.dfl.conv.weight'
 [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[34m[1mAMP: [0mchecks passed ✅
+[34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3549.4±2826.5 MB/s, size: 565.0 KB)
+
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3599.2±2649.4 MB/s, size: 625.6 KB)
+
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Plotting labels to /workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train/labels.jpg... 
+Image sizes 640 train, 640 val
+Using 8 dataloader workers
+Logging results to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train[0m
+Starting training for 9 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        1/9      3.96G      2.051      2.306      1.647         85        640: 100% ━━━━━━━━━━━━ 173/173 6.4it/s 26.9s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 8.4it/s 2.3s
+                   all        604       2786      0.413      0.515      0.421      0.185
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        2/9      4.22G      1.902      1.766      1.468         82        640: 100% ━━━━━━━━━━━━ 173/173 7.5it/s 23.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 8.8it/s 2.2s
+                   all        604       2786      0.399      0.482      0.411      0.173
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        3/9      4.22G      1.904      1.729      1.449         87        640: 100% ━━━━━━━━━━━━ 173/173 8.2it/s 21.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 8.8it/s 2.2s
+                   all        604       2786      0.386      0.524      0.436      0.196
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        4/9      4.24G      1.863      1.678      1.423         76        640: 100% ━━━━━━━━━━━━ 173/173 8.2it/s 21.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.2it/s 2.1s
+                   all        604       2786       0.46      0.577      0.476      0.221
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        5/9      4.24G      1.847      1.637      1.409         67        640: 100% ━━━━━━━━━━━━ 173/173 7.9it/s 22.0s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.2it/s 2.1s
+                   all        604       2786      0.448      0.567      0.477      0.223
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        6/9      4.24G      1.819      1.593      1.388         86        640: 100% ━━━━━━━━━━━━ 173/173 8.1it/s 21.4s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.2it/s 2.1s
+                   all        604       2786      0.448      0.581      0.472      0.221
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        7/9      4.24G      1.791      1.557      1.379         99        640: 100% ━━━━━━━━━━━━ 173/173 7.9it/s 21.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.1it/s 2.1s
+                   all        604       2786       0.46      0.575      0.497      0.233
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        8/9      4.24G      1.758      1.516      1.373        105        640: 100% ━━━━━━━━━━━━ 173/173 7.9it/s 21.9s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 9.2it/s 2.1s
+                   all        604       2786      0.457      0.593      0.508      0.242
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        9/9      4.24G      1.762      1.497      1.366         90        640: 100% ━━━━━━━━━━━━ 173/173 8.2it/s 21.1s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 8.0it/s 2.4s
+                   all        604       2786      0.483      0.592      0.522      0.248
+
+9 epochs completed in 0.064 hours.
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train/weights/last.pt, 19.2MB
+Optimizer stripped from /workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train/weights/best.pt, 19.2MB
+
+Validating /workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train/weights/best.pt...
+Ultralytics 8.4.35 🚀 Python-3.11.10 torch-2.4.1+cu124 CUDA:0 (NVIDIA RTX A4500, 20053MiB)
+YOLO11s summary (fused): 101 layers, 9,414,348 parameters, 0 gradients, 21.3 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 19/19 5.7it/s 3.3s
+                   all        604       2786      0.483      0.592      0.522      0.248
+                    B1        252        301       0.62      0.841      0.792      0.416
+                    B2        364        612      0.415      0.449        0.4      0.199
+                    B3        533       1319      0.464      0.729      0.556      0.251
+                    B4        329        554      0.433       0.35      0.342      0.126
+Speed: 0.1ms preprocess, 1.2ms inference, 0.0ms loss, 0.7ms postprocess per image
+Results saved to [1m/workspace/Hermes-YOLO/experiments/runs/STRUCT_004/train[0m
