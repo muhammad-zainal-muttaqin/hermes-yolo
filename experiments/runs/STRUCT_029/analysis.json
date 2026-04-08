@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_029",
+  "map50": 0.5212063705860319,
+  "structural_change": "Stratified sampling ensuring balanced domain representation per batch",
+  "target_problem": "Domain imbalance 90% DAMIMAS / 10% LONSUM",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
