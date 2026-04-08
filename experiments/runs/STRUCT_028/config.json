@@ -1,0 +1,27 @@
+{
+  "id": "STRUCT_028",
+  "name": "CopyPasteSemantic",
+  "description": "Semantic-aware copy-paste that preserves context for rare classes",
+  "structural_change": "Advanced augmentation that copies B1/B4 onto suitable backgrounds only",
+  "rationale": "Increase rare class samples without creating unrealistic combinations",
+  "target_problem": "B1/B4 rare class underrepresentation",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 9,
+  "seed": 42,
+  "novel_components": [
+    "semantic_copy_paste",
+    "context_aware_augmentation",
+    "rare_class_boost"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0,
+    "copy_paste": 0.3
+  },
+  "timestamp": "2026-04-08T18:25:13.290192"
+}
