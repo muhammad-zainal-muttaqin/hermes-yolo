@@ -1,0 +1,26 @@
+{
+  "id": "STRUCT_016",
+  "name": "TestTimeAugmentation",
+  "description": "Multi-scale inference with uncertainty-weighted fusion",
+  "structural_change": "TTA wrapper around base model - inference time architecture change",
+  "rationale": "Reduces variance by ensembling multiple augmentations during inference",
+  "target_problem": "B2/B3 ambiguity - higher confidence through consensus",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 8,
+  "seed": 42,
+  "novel_components": [
+    "test_time_augmentation",
+    "multi_scale_inference",
+    "uncertainty_fusion"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "timestamp": "2026-04-08T17:17:48.916770"
+}
