@@ -1,0 +1,10 @@
+{
+  "exp_id": "STRUCT_024",
+  "map50": 0.5035701740031259,
+  "structural_change": "TTA wrapper around base model - inference time architecture change",
+  "target_problem": "B2/B3 ambiguity - higher confidence through consensus",
+  "success": true,
+  "notes": [
+    "Structural approach shows promise"
+  ]
+}
