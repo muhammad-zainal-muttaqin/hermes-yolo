@@ -1,0 +1,27 @@
+{
+  "id": "STRUCT_023",
+  "name": "UncertaintyGuided",
+  "description": "Uncertainty estimation to identify and focus on ambiguous detections",
+  "structural_change": "Monte Carlo Dropout during training for uncertainty quantification",
+  "rationale": "High uncertainty indicates B2/B3 ambiguity - focus learning there",
+  "target_problem": "B2/B3 ambiguity detection and handling",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "novel_components": [
+    "monte_carlo_dropout",
+    "uncertainty_quantification",
+    "ambiguity_focus"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0,
+    "dropout": 0.1
+  },
+  "timestamp": "2026-04-08T17:55:45.425461"
+}
