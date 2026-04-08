@@ -437,47 +437,68 @@ def find_dataset_path():
     # Look for dataset directories
     dataset_dirs = list(cache_dir.glob("datasets--ULM-DS-Lab--Dataset-Sawit-YOLO*"))
     
-    if dataset_dirs:
-        # Look for snapshot directory
-        for d in dataset_dirs:
-            snapshots = list(d.glob("snapshots/*/"))
-            if snapshots:
-                return snapshots[0]
-        return dataset_dirs[0]
+    if not dataset_dirs:
+        return None
     
-    return None
+    # Get the first dataset directory
+    dataset_dir = dataset_dirs[0]
+    
+    # Look for snapshot directory
+    snapshots = list(dataset_dir.glob("snapshots/*"))
+    if snapshots:
+        snapshot_dir = snapshots[0]
+        # Verify it has images
+        images_dir = snapshot_dir / "images"
+        if images_dir.exists():
+            print(f"   Found dataset at: {snapshot_dir}")
+            return str(snapshot_dir)
+    
+    # Fallback to dataset_dir if no snapshot
+    return str(dataset_dir)
 
 def create_data_yaml(dataset_path, exp_dir):
     """Create data.yaml for YOLO training"""
     
-    # Look for train/val/test structure
-    train_dir = None
-    val_dir = None
-    test_dir = None
+    # Check actual paths in the dataset
+    snapshot_dir = Path(dataset_path)
     
-    # Search for images directories
-    for root, dirs, files in os.walk(dataset_path):
-        if 'train' in dirs and 'images' in dirs:
-            train_dir = Path(root) / 'train' / 'images'
-        if 'val' in dirs and 'images' in dirs:
-            val_dir = Path(root) / 'val' / 'images'
-        if 'test' in dirs and 'images' in dirs:
-            test_dir = Path(root) / 'test' / 'images'
+    # Find train/val directories
+    train_images = snapshot_dir / "images" / "train"
+    val_images = snapshot_dir / "images" / "val"
+    test_images = snapshot_dir / "images" / "test"
     
-    # Default paths if structure found
-    if not train_dir:
-        train_path = str(dataset_path / "train" / "images")
-        val_path = str(dataset_path / "val" / "images")
-        test_path = str(dataset_path / "test" / "images")
+    # Check if they exist
+    train_exists = train_images.exists()
+    val_exists = val_images.exists()
+    test_exists = test_images.exists()
+    
+    # Get actual image counts
+    if train_exists:
+        train_count = len(list(train_images.glob("*.jpg")))
     else:
-        train_path = str(train_dir)
-        val_path = str(val_dir) if val_dir else str(dataset_path / "val" / "images")
-        test_path = str(test_dir) if test_dir else str(dataset_path / "test" / "images")
+        train_count = 0
     
-    yaml_content = f"""path: {dataset_path}
-train: {train_path}
-val: {val_path}
-test: {test_path}
+    if val_exists:
+        val_count = len(list(val_images.glob("*.jpg")))
+    else:
+        val_count = 0
+    
+    print(f"   Dataset check - Train: {train_count}, Val: {val_count}")
+    
+    # If directories don't exist, try alternative structure
+    if not train_exists:
+        # Try flat structure
+        train_images = snapshot_dir / "train" / "images"
+        val_images = snapshot_dir / "val" / "images"
+        test_images = snapshot_dir / "test" / "images"
+        train_exists = train_images.exists()
+        val_exists = val_images.exists()
+    
+    # Use absolute paths for reliability
+    yaml_content = f"""path: {snapshot_dir}
+train: images/train
+val: images/val
+test: images/test
 
 nc: 4
 names: ['B1', 'B2', 'B3', 'B4']
@@ -487,6 +508,7 @@ names: ['B1', 'B2', 'B3', 'B4']
     with open(yaml_path, 'w') as f:
         f.write(yaml_content)
     
+    print(f"   Created data.yaml at: {yaml_path}")
     return yaml_path
 
 def update_leaderboard(exp_id, config, results):
