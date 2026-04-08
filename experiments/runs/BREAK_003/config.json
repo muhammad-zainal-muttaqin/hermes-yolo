@@ -1,0 +1,29 @@
+{
+  "id": "COMBINED",
+  "name": "SORD_LAB_MultiChannel",
+  "description": "Combined Tier 1: SORD soft labels + L*a*b* + Multi-channel (RGB+Lab+redness)",
+  "structural_change": "6-7 channel input with SORD ordinal loss - comprehensive signal enhancement",
+  "rationale": "Stack multiple zero-inference-cost improvements: color space + ordinal labels",
+  "target_problem": "All three: B2/B3 ambiguity, color confusion, ordinal structure",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "channels": 6,
+  "sord": {
+    "enabled": true,
+    "sigma": 0.8,
+    "num_classes": 4
+  },
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "reference": "Tier 1 Stack from BREAKTHROUGH_IDEAS.md",
+  "expected_gain": "+8-15% mAP50 (combined)",
+  "timestamp": "2026-04-08T23:06:16.289031"
+}

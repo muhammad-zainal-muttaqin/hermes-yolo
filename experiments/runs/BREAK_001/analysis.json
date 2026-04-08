@@ -1,0 +1,14 @@
+{
+  "exp_id": "BREAK_001",
+  "map50": 0.5212063705860319,
+  "baseline": 0.522,
+  "improvement": -0.0007936294139680999,
+  "improvement_pct": -0.1520362862007854,
+  "structural_change": "Replace hard one-hot labels with ordinal soft distributions (exp(-|k-j|\u00b2/2\u03c3\u00b2))",
+  "tier": "Tier 1 Breakthrough",
+  "success": false,
+  "notes": [
+    "\u26a0\ufe0f No improvement vs baseline",
+    "SORD: Ordinal soft labels reduce B2/B3 penalty"
+  ]
+}

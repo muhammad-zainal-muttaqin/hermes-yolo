@@ -1,0 +1,14 @@
+{
+  "exp_id": "BREAK_002",
+  "map50": 0.5212063705860319,
+  "baseline": 0.522,
+  "improvement": -0.0007936294139680999,
+  "improvement_pct": -0.1520362862007854,
+  "structural_change": "Replace RGB with L*a*b* where a* channel directly encodes red-green axis",
+  "tier": "Tier 1 Breakthrough",
+  "success": false,
+  "notes": [
+    "\u26a0\ufe0f No improvement vs baseline",
+    "L*a*b*: a* channel separates red(B2) from black(B3)"
+  ]
+}

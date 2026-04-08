@@ -1,0 +1,28 @@
+{
+  "id": "SORD",
+  "name": "SORD_OrdinalSoftLabels",
+  "description": "Gaussian-kernel soft labels encoding ordinal maturity continuum",
+  "structural_change": "Replace hard one-hot labels with ordinal soft distributions (exp(-|k-j|\u00b2/2\u03c3\u00b2))",
+  "rationale": "B2\u2192B3 confusion should have lower penalty than B1\u2192B4; encode biological continuum",
+  "target_problem": "B2/B3 ambiguity treated equally to B1/B4 errors in standard CE loss",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "sord": {
+    "enabled": true,
+    "sigma": 0.8,
+    "num_classes": 4
+  },
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "reference": "D\u00edaz & Marathe, CVPR 2019",
+  "expected_gain": "+3-5% mAP50",
+  "timestamp": "2026-04-08T23:06:16.293272"
+}

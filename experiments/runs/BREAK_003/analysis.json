@@ -1,0 +1,15 @@
+{
+  "exp_id": "BREAK_003",
+  "map50": 0.5212063705860319,
+  "baseline": 0.522,
+  "improvement": -0.0007936294139680999,
+  "improvement_pct": -0.1520362862007854,
+  "structural_change": "6-7 channel input with SORD ordinal loss - comprehensive signal enhancement",
+  "tier": "Tier 1 Breakthrough",
+  "success": false,
+  "notes": [
+    "\u26a0\ufe0f No improvement vs baseline",
+    "SORD: Ordinal soft labels reduce B2/B3 penalty",
+    "L*a*b*: a* channel separates red(B2) from black(B3)"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "FDA",
+  "name": "FDA_DomainAdaptation",
+  "description": "Fourier Domain Adaptation for DAMIMAS/LONSUM alignment",
+  "structural_change": "Swap low-frequency amplitude spectrum between domains using FFT",
+  "rationale": "Align color temperature/brightness between DAMIMAS (90%) and LONSUM (10%)",
+  "target_problem": "Domain shift: different plantations, cameras, lighting conditions",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "fda": {
+    "enabled": true,
+    "beta": 0.01
+  },
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "reference": "Yang & Soatto, CVPR 2020",
+  "expected_gain": "+2-4% mAP50",
+  "timestamp": "2026-04-08T23:06:16.292506"
+}

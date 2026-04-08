@@ -1,0 +1,25 @@
+{
+  "id": "LAB",
+  "name": "LAB_ColorSpace",
+  "description": "CIE L*a*b* color space input for better B2/B3 separation",
+  "structural_change": "Replace RGB with L*a*b* where a* channel directly encodes red-green axis",
+  "rationale": "B2 (red appearing) vs B3 (pure black) separation in a* channel",
+  "target_problem": "RGB conflates luminance with chrominance; B2/B3 indistinguishable in dark lighting",
+  "model": "yolo11s",
+  "imgsz": 640,
+  "epochs": 10,
+  "seed": 42,
+  "channels": 3,
+  "color_space": "lab",
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "reference": "Septiarini et al., 2021 (98.3% accuracy)",
+  "expected_gain": "+2-4% mAP50",
+  "timestamp": "2026-04-08T23:06:16.392582"
+}

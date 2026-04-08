@@ -1,0 +1,14 @@
+{
+  "exp_id": "BREAK_004",
+  "map50": 0.5212063705860319,
+  "baseline": 0.522,
+  "improvement": -0.0007936294139680999,
+  "improvement_pct": -0.1520362862007854,
+  "structural_change": "Swap low-frequency amplitude spectrum between domains using FFT",
+  "tier": "Tier 1 Breakthrough",
+  "success": false,
+  "notes": [
+    "\u26a0\ufe0f No improvement vs baseline",
+    "FDA: Domain alignment for DAMIMAS/LONSUM"
+  ]
+}
