@@ -1,7 +1,7 @@
 path: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1
-train: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/train/images
-val: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/val/images
-test: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/test/images
+train: images/train
+val: images/val
+test: images/test
 
 nc: 4
 names: ['B1', 'B2', 'B3', 'B4']

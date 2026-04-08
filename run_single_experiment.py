@@ -457,45 +457,17 @@ def find_dataset_path():
     return str(dataset_dir)
 
 def create_data_yaml(dataset_path, exp_dir):
-    """Create data.yaml for YOLO training"""
+    """Create data.yaml for YOLO training - use central dataset config"""
     
-    # Check actual paths in the dataset
-    snapshot_dir = Path(dataset_path)
+    # Use the verified working dataset.yaml
+    central_yaml = Path("/workspace/Hermes-YOLO/dataset.yaml")
     
-    # Find train/val directories
-    train_images = snapshot_dir / "images" / "train"
-    val_images = snapshot_dir / "images" / "val"
-    test_images = snapshot_dir / "images" / "test"
+    if central_yaml.exists():
+        # Just return the central config - it works!
+        return central_yaml
     
-    # Check if they exist
-    train_exists = train_images.exists()
-    val_exists = val_images.exists()
-    test_exists = test_images.exists()
-    
-    # Get actual image counts
-    if train_exists:
-        train_count = len(list(train_images.glob("*.jpg")))
-    else:
-        train_count = 0
-    
-    if val_exists:
-        val_count = len(list(val_images.glob("*.jpg")))
-    else:
-        val_count = 0
-    
-    print(f"   Dataset check - Train: {train_count}, Val: {val_count}")
-    
-    # If directories don't exist, try alternative structure
-    if not train_exists:
-        # Try flat structure
-        train_images = snapshot_dir / "train" / "images"
-        val_images = snapshot_dir / "val" / "images"
-        test_images = snapshot_dir / "test" / "images"
-        train_exists = train_images.exists()
-        val_exists = val_images.exists()
-    
-    # Use absolute paths for reliability
-    yaml_content = f"""path: {snapshot_dir}
+    # Fallback: create experiment-specific yaml
+    yaml_content = f"""path: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1
 train: images/train
 val: images/val
 test: images/test
