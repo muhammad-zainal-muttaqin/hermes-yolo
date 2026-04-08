@@ -1,0 +1,26 @@
+{
+  "id": "STRUCT_014",
+  "name": "EnsembleDiverse",
+  "description": "Ensemble of YOLOv8 and YOLO11 with weighted box fusion",
+  "structural_change": "Multi-model architecture with disagreement-based weighting",
+  "rationale": "Combine different inductive biases for robust predictions",
+  "target_problem": "Single model limitations - ensemble for robustness",
+  "model": "ensemble",
+  "imgsz": 640,
+  "epochs": 6,
+  "seed": 42,
+  "novel_components": [
+    "model_ensemble",
+    "weighted_box_fusion",
+    "diverse_architectures"
+  ],
+  "hyp": {
+    "lr0": 0.01,
+    "lrf": 0.1,
+    "box": 7.5,
+    "cls": 0.5,
+    "dfl": 1.5,
+    "mosaic": 1.0
+  },
+  "timestamp": "2026-04-08T17:08:32.067813"
+}
