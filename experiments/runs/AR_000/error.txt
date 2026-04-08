@@ -1,8 +1,19 @@
 Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/ultralytics/engine/trainer.py", line 701, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/ultralytics/data/utils.py", line 479, in check_det_dataset
+    raise FileNotFoundError(m)
+FileNotFoundError: Dataset '/workspace/Hermes-YOLO/experiments/runs/AR_000/data.yaml' images not found, missing path '/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/val/images'
+Note dataset download directory is '/workspace/Hermes-YOLO/datasets'. You can update this in '/root/.config/Ultralytics/settings.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
   File "/workspace/Hermes-YOLO/run_single_experiment.py", line 50, in run_experiment
     results = train_model(config, exp_dir)
               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/Hermes-YOLO/run_single_experiment.py", line 417, in train_model
+  File "/workspace/Hermes-YOLO/run_single_experiment.py", line 409, in train_model
     results = model.train(
               ^^^^^^^^^^^^
   File "/usr/local/lib/python3.11/dist-packages/ultralytics/engine/model.py", line 781, in train
@@ -10,50 +21,10 @@ Traceback (most recent call last):
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/local/lib/python3.11/dist-packages/ultralytics/models/yolo/detect/train.py", line 63, in __init__
     super().__init__(cfg, overrides, _callbacks)
-  File "/usr/local/lib/python3.11/dist-packages/ultralytics/engine/trainer.py", line 126, in __init__
-    self.args = get_cfg(cfg, overrides)
-                ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/ultralytics/cfg/__init__.py", line 316, in get_cfg
-    check_dict_alignment(cfg, overrides)
-  File "/usr/local/lib/python3.11/dist-packages/ultralytics/cfg/__init__.py", line 513, in check_dict_alignment
-    raise SyntaxError(string + CLI_HELP_MSG) from e
-SyntaxError: '[31m[1mfocal_gamma[0m' is not a valid YOLO argument. 
-
-    Arguments received: ['yolo', '0']. Ultralytics 'yolo' commands use the following syntax:
-
-        yolo TASK MODE ARGS
-
-        Where   TASK (optional) is one of ['obb', 'classify', 'segment', 'pose', 'detect']
-                MODE (required) is one of ['track', 'val', 'export', 'train', 'predict', 'benchmark']
-                ARGS (optional) are any number of custom 'arg=value' pairs like 'imgsz=320' that override defaults.
-                    See all ARGS at https://docs.ultralytics.com/usage/cfg or with 'yolo cfg'
-
-    1. Train a detection model for 10 epochs with an initial learning_rate of 0.01
-        yolo train data=coco8.yaml model=yolo26n.pt epochs=10 lr0=0.01
-
-    2. Predict a YouTube video using a pretrained segmentation model at image size 320:
-        yolo predict model=yolo26n-seg.pt source='https://youtu.be/LNwODJXcvt4' imgsz=320
-
-    3. Validate a pretrained detection model at batch-size 1 and image size 640:
-        yolo val model=yolo26n.pt data=coco8.yaml batch=1 imgsz=640
-
-    4. Export a YOLO26n classification model to ONNX format at image size 224 by 128 (no TASK required)
-        yolo export model=yolo26n-cls.pt format=onnx imgsz=224,128
-
-    5. Ultralytics solutions usage
-        yolo solutions count or any of ['crop', 'blur', 'workout', 'heatmap', 'isegment', 'visioneye', 'speed', 'queue', 'analytics', 'inference', 'trackzone'] source="path/to/video.mp4"
-
-    6. Run special commands:
-        yolo help
-        yolo checks
-        yolo version
-        yolo settings
-        yolo copy-cfg
-        yolo cfg
-        yolo solutions help
-
-    Docs: https://docs.ultralytics.com
-    Solutions: https://docs.ultralytics.com/solutions/
-    Community: https://community.ultralytics.com
-    GitHub: https://github.com/ultralytics/ultralytics
-    
+  File "/usr/local/lib/python3.11/dist-packages/ultralytics/engine/trainer.py", line 186, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/ultralytics/engine/trainer.py", line 705, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset '/workspace/Hermes-YOLO/experiments/runs/AR_000/data.yaml' error ❌ Dataset '/workspace/Hermes-YOLO/experiments/runs/AR_000/data.yaml' images not found, missing path '/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/val/images'
+Note dataset download directory is '/workspace/Hermes-YOLO/datasets'. You can update this in '/root/.config/Ultralytics/settings.json'

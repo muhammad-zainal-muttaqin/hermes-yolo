@@ -83,3 +83,4 @@ Expected gain: 5-10% mAP50 on B2/B3 specifically
 🧪 AR_001: Conservative_B4
    Strategy: ['conservative_aug', 'high_res_small_obj']
    ⚠️ Dataset not fully ready, waiting...
+[2026-04-08 15:40:15] Interrupted
