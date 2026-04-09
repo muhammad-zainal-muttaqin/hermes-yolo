@@ -1,0 +1,10 @@
+{
+  "experiment_id": "BREAK_079",
+  "name": "Optimization_13",
+  "map50": 0.5202,
+  "map75": 0.2497,
+  "precision": 0.4942,
+  "recall": 0.5722,
+  "approach": "Fine-tuning variant 13",
+  "note": "Part of comprehensive optimization sweep"
+}
