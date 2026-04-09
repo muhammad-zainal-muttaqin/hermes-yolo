@@ -1,0 +1,20 @@
+{
+  "experiment_id": "BREAK_037",
+  "name": "Top5_Ensemble",
+  "models": [
+    "STRUCT_004",
+    "BREAK_002",
+    "BREAK_001",
+    "BREAK_004",
+    "BREAK_003"
+  ],
+  "individual_map50s": [
+    0.5224612654826408,
+    0.5212063705860319,
+    0.5212063705860319,
+    0.5212063705860319,
+    0.5212063705860319
+  ],
+  "expected_map50": 0.5314573495653536,
+  "ensemble_type": "weighted_box_fusion"
+}

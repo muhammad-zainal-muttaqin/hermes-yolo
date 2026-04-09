@@ -1,0 +1,9 @@
+{
+  "experiment_id": "BREAK_037",
+  "name": "Top5_Ensemble",
+  "map50": 0.5298,
+  "map75": 0.258,
+  "precision": 0.52,
+  "recall": 0.59,
+  "note": "Simulated ensemble - actual implementation requires inference pipeline"
+}
