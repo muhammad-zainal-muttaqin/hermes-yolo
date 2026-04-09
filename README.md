@@ -101,6 +101,54 @@ See [IDEA.md](IDEA.md) for full strategy descriptions and per-experiment analysi
 
 ---
 
+## Training Setup
+
+| Component | Detail |
+|:----------|:-------|
+| **Model** | YOLOv8n (Nano) — `yolov8n.pt` (6MB) |
+| **Framework** | Ultralytics 8.4.35 + PyTorch 2.4.1 |
+| **GPU** | NVIDIA RTX A4500 (20GB VRAM) |
+| **CUDA** | 12.4 |
+| **Platform** | RunPod cloud instance |
+
+### Default Training Config
+
+```yaml
+model: yolov8n.pt
+imgsz: 640          # or 768 for resolution experiments
+batch: 16           # or 8 for 768px (VRAM constraint)
+epochs: 15          # scout runs; 20 for combos, 60 for extended
+seed: 42
+optimizer: auto     # AdamW (Ultralytics default)
+lr0: 0.01
+lrf: 0.01           # final LR factor
+cos_lr: false       # true for label smoothing experiments
+label_smoothing: 0.0
+```
+
+### Pre-trained Weights
+
+Top model weights are saved in [`weights/`](weights/) for direct inference:
+
+```bash
+# Run inference with best model
+yolo detect predict model=weights/NOVEL_021_best.pt source=your_image.jpg
+
+# Validate on test set
+yolo detect val model=weights/NOVEL_021_best.pt data=dataset_novel.yaml split=test
+```
+
+| Weight File | mAP50 | Strategy |
+|:------------|:-----:|:---------|
+| `NOVEL_021_best.pt` | 0.5269 | 768px + Label Smoothing 0.15 |
+| `NOVEL_013_best.pt` | 0.5232 | Pseudo-label SSOD |
+| `NOVEL_020_best.pt` | 0.5231 | 768px + SORD sigma=0.5 |
+| `NOVEL_005_best.pt` | 0.5219 | Higher Resolution 768px |
+| `NOVEL_015_best.pt` | 0.5192 | SimCLR proxy |
+| `BREAK_101_best.pt` | 0.5250 | Extended 52-epoch baseline |
+
+---
+
 ## Repository Structure
 
 ```
@@ -108,6 +156,7 @@ Hermes-YOLO/
 ├── novel_runner.py              # Experiment runner (TIER 1-5, all 22 experiments)
 ├── dataset_novel.yaml           # Dataset config (RGB, 2764 train / 604 val / 624 test)
 ├── dataset_novel_lab.yaml       # Dataset config (L*a*b* color space variant)
+├── weights/                     # Top model weights (best.pt) for inference
 ├── IDEA.md                      # Strategy tracker — all TIER 1-5 ideas + results
 ├── LEADERBOARD.md               # Full experiment rankings
 ├── README.md                    # This file
@@ -116,7 +165,7 @@ Hermes-YOLO/
 │   └── visualizations/          # progress_map50.png — auto-updated after each run
 └── runs/detect/experiments/
     └── experiments/runs/
-        └── NOVEL_*/             # Per-experiment weights, results.csv, args.yaml
+        └── NOVEL_*/             # Per-experiment results.csv, args.yaml
 ```
 
 ---
@@ -148,12 +197,12 @@ All experiments use `seed=42`.
 
 ```bash
 # Check a specific experiment config
-cat runs/detect/experiments/experiments/runs/NOVEL_022/args.yaml
+cat runs/detect/experiments/experiments/runs/NOVEL_021/args.yaml
 
 # Re-run the best single-model experiment
 python -c "
 from novel_runner import EXPERIMENTS, run_experiment
-cfg = next(e for e in EXPERIMENTS if e['id'] == 'NOVEL_022')
+cfg = next(e for e in EXPERIMENTS if e['id'] == 'NOVEL_021')
 run_experiment(cfg)
 "
 ```
