@@ -65,7 +65,7 @@
 - **Notes**: Simpan LAB sebagai uint8 PNG: L→[0-255], a→[0-255], b→[0-255]
 
 ### T1-004: P2 Detection Head (Small Object B4)
-- **Status**: ⬜
+- **Status**: ✅
 - **Experiment ID**: NOVEL_004
 - **Mechanism**: Tambah detection head di P2 (stride=4, resolusi 4× lebih tinggi dari P3). B4 yang sangat kecil dan tersembunyi dalam tandan akan terdeteksi lebih baik. Hapus P5 head (tidak ada objek besar-besar di image).
 - **Config**: Custom YOLO YAML (yolov8n-p2.yaml), 640px, 60 epochs
@@ -212,6 +212,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_003 | P2 Detection Head (Small Object B4) | 0.0000 | 0.0000 | 0.0000 | 0/0 | P2 head (stride=4) for tiny B4 detection | 2026-04-09 | — |
 | NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | auto-tracked | 2026-04-09 | — |
 | NOVEL_002 | L*a*b* Color Space Input | **0.4963** | 0.5736 | 0.4827 | 14/14 | auto-tracked | 2026-04-09 | — |
 | NOVEL_003 | P2 Detection Head | **0.4380** | 0.5245 | 0.4374 | 13/14 | auto-tracked | 2026-04-09 | — |
