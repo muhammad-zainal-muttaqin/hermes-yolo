@@ -36,7 +36,7 @@
 ## TIER 1 — Zero Inference Cost, Training-Only (Target: +8–15% combined)
 
 ### T1-001: Label Smoothing (Proxy SORD)
-- **Status**: ⬜
+- **Status**: ✅
 - **Experiment ID**: NOVEL_001
 - **Mechanism**: Native YOLO `label_smoothing=0.1` — reduces overconfidence pada B2/B3 boundary
 - **Config**: yolov8n.pt, 640px, 60 epochs, ls=0.1 (everything else same as BREAK_101)
@@ -212,6 +212,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_001 | Label Smoothing + CosLR | 0.0000 | 0.0000 | 0.0000 | 0/0 | Ordinal proxy via label_smoothing=0.15 + cosine LR decay | 2026-04-09 | — |
 
 ---
 
