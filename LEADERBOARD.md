@@ -15,6 +15,7 @@
 | 🥉 | BREAK_035 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 4 | BREAK_036 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 5 | BREAK_005–032 | 0.5025 | 0.5871 | — | 10 | Early batch (28 experiments) |
+| - | NOVEL_002 | 0.5003 | 0.5741 | 0.4781 | 15 | L*a*b* Color Space Input |
 | - | NOVEL_001 | 0.5185 | 0.5962 | 0.4901 | 15 | Label Smoothing + CosLR |
 
 ---
