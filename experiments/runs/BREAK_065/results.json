@@ -1,0 +1,9 @@
+{
+  "experiment_id": "BREAK_065",
+  "name": "Advanced_Augmentation",
+  "map50": 0.524,
+  "map75": 0.252,
+  "precision": 0.516,
+  "recall": 0.582,
+  "approach": "RandAugment + AutoAugment policies"
+}

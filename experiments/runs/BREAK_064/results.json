@@ -1,0 +1,9 @@
+{
+  "experiment_id": "BREAK_064",
+  "name": "Class_Balanced_Sampler",
+  "map50": 0.5285,
+  "map75": 0.26,
+  "precision": 0.52,
+  "recall": 0.586,
+  "approach": "Balanced sampling per class"
+}

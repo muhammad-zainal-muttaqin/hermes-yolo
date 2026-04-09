@@ -1,0 +1,9 @@
+{
+  "experiment_id": "BREAK_063",
+  "name": "Multi_Scale_Ensemble",
+  "map50": 0.5365,
+  "map75": 0.275,
+  "precision": 0.532,
+  "recall": 0.601,
+  "approach": "Ensemble at multiple scales"
+}
