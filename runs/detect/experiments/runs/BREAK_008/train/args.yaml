@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: /root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/data.yaml
+data: /workspace/Hermes-YOLO/dataset_absolute.yaml
 epochs: 10
 time: null
 patience: 5
