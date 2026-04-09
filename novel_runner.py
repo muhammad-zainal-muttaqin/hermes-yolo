@@ -543,7 +543,10 @@ def update_idea_md(exp_id: str, idea_id: str, result: dict, config: dict):
     current_best = 0.0
     if current_best_match:
         try:
-            current_best = float(current_best_match.group(1).strip().split(" ")[0])
+            # Strip markdown bold markers (**) before parsing float
+            raw = current_best_match.group(1).strip().split(" ")[0]
+            raw = raw.replace("*", "")
+            current_best = float(raw)
         except:
             pass
 

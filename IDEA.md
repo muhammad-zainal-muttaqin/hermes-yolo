@@ -229,6 +229,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.3723** (NOVEL_007) |
+| NOVEL Series Best | **0.5219** (NOVEL_005 — 768px resolution) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |

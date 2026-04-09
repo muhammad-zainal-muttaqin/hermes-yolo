@@ -75,9 +75,9 @@
 | 2 | NOVEL_001 | 0.5185 | 0.5962 | 0.4901 | 15/15 | Label Smoothing + CosLR | ✅ |
 | 3 | NOVEL_002 | 0.5003 | 0.5741 | 0.4781 | 15/15 | L*a*b* Color Space Input | ✅ |
 | 4 | NOVEL_004 | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD Ordinal Loss (σ=0.8) | ✅ |
-| 5 | NOVEL_003 | 0.4380 | 0.5245 | 0.4374 | 13/15 | P2 Detection Head | ✅ |
-| 6 | NOVEL_007 | 0.3723 | 0.4968 | 0.3704 | 14/15 | L*a*b* + P2 Head Combo | ✅ |
-| - | NOVEL_006 | 🔄 — | — | — | 15 | SORD + Label Smoothing | 🔄 Running |
-| - | NOVEL_008 | ⬜ — | — | — | 15 | SORD + P2 Head Combo | ⬜ Queued |
+| 4= | NOVEL_006 | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD + Label Smoothing | ✅ |
+| 6 | NOVEL_003 | 0.4380 | 0.5245 | 0.4374 | 13/15 | P2 Detection Head | ✅ |
+| 7 | NOVEL_007 | 0.3723 | 0.4968 | 0.3704 | 14/15 | L*a*b* + P2 Head Combo | ✅ |
+| - | NOVEL_008 | 🔄 — | — | — | 15 | SORD + P2 Head Combo | 🔄 Running |
 | - | NOVEL_009 | ⬜ — | — | — | 15 | Full Tier 1: LAB+SORD+P2 | ⬜ Queued |
 | - | NOVEL_010 | ⬜ — | — | — | 15 | SORD σ=0.5 (tighter) | ⬜ Queued |
