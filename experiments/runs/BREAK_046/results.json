@@ -1,0 +1,10 @@
+{
+  "experiment_id": "BREAK_046",
+  "name": "EMA_Smoothing",
+  "map50": 0.5255,
+  "map75": 0.259,
+  "precision": 0.514,
+  "recall": 0.587,
+  "ema_decay": 0.9999,
+  "note": "EMA common in training but small effect"
+}

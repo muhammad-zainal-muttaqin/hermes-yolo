@@ -1,0 +1,21 @@
+{
+  "experiment_id": "BREAK_042",
+  "name": "Best_Config_100epochs",
+  "map50": 0.5265,
+  "map75": 0.26,
+  "precision": 0.515,
+  "recall": 0.588,
+  "config": {
+    "epochs": 100,
+    "batch": 16,
+    "imgsz": 768,
+    "augmentations": [
+      "copy_paste",
+      "mixup",
+      "mosaic"
+    ],
+    "optimizer": "AdamW",
+    "lr0": 0.001
+  },
+  "note": "Extended training with best known config"
+}
