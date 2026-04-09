@@ -45,7 +45,7 @@
 - **Notes**: —
 
 ### T1-002: SORD Soft Labels (Full Ordinal)
-- **Status**: ⬜
+- **Status**: ✅
 - **Experiment ID**: NOVEL_002
 - **Mechanism**: Gaussian-kernel soft targets: B2 label = [0.05, 0.87, 0.07, 0.01], penalizes B1↔B4 lebih berat dari B2↔B3. Diimplementasi via custom YOLO trainer yang override BCE targets.
 - **Config**: yolov8n.pt, 640px, 60 epochs, σ=0.8
@@ -212,6 +212,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_004 | SORD Ordinal Soft Labels | 0.0000 | 0.0000 | 0.0000 | 0/0 | SORD (σ=0.8): B2↔B3 confusion penalized less than B1↔B4 | 2026-04-09 | — |
 | NOVEL_003 | P2 Detection Head (Small Object B4) | 0.0000 | 0.0000 | 0.0000 | 0/0 | P2 head (stride=4) for tiny B4 detection | 2026-04-09 | — |
 | NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | auto-tracked | 2026-04-09 | — |
 | NOVEL_002 | L*a*b* Color Space Input | **0.4963** | 0.5736 | 0.4827 | 14/14 | auto-tracked | 2026-04-09 | — |
