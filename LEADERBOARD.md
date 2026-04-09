@@ -15,6 +15,7 @@
 | 🥉 | BREAK_035 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 4 | BREAK_036 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 5 | BREAK_005–032 | 0.5025 | 0.5871 | — | 10 | Early batch (28 experiments) |
+| - | NOVEL_012 | 0.5219 | 0.5979 | 0.4886 | 15 | 768px + LabelSmoothing 0.05 + CosLR (T2-003 variant) |
 | - | NOVEL_022 | 0.5316 | 0.5954 | 0.4941 | 33 | Extended Training: NOVEL_005 @ 60 epochs |
 | - | NOVEL_021 | 0.5269 | 0.5882 | 0.5081 | 20 | 768px + Label Smoothing 0.15 (Top-2 Combo) |
 | - | NOVEL_020 | 0.5250 | 0.6054 | 0.4888 | 19 | 768px + SORD σ=0.5 (Winning Combo) |
