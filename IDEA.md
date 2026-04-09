@@ -45,7 +45,7 @@
 - **Notes**: Best NOVEL experiment so far; slightly below BREAK_101 (0.5250) but good signal
 
 ### T1-002: SORD Soft Labels (Full Ordinal)
-- **Status**: ✅ (partial — NOVEL_004/006/008/010 are re-runs after bug fix)
+- **Status**: ✅
 - **Experiment ID**: NOVEL_004, NOVEL_006, NOVEL_008, NOVEL_010
 - **Mechanism**: Gaussian-kernel soft targets: B2 label = [0.05, 0.87, 0.07, 0.01], penalizes B1↔B4 lebih berat dari B2↔B3. Diimplementasi via custom YOLO trainer yang override BCE targets.
 - **Config**: yolov8n.pt, 640px, 15 epochs, σ=0.8
@@ -211,6 +211,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_004 | SORD Ordinal Soft Labels | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD (σ=0.8): B2↔B3 confusion penalized less than B1↔B4 | 2026-04-09 | — |
 | NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | yolov8n, 640px, ls=0.15 | 2026-04-09 | Best NOVEL so far |
 | NOVEL_002 | L*a*b* Color Space Input | **0.5003** | 0.5741 | 0.4781 | 15/15 | yolov8n, LAB dataset, 640px | 2026-04-09 | — |
 | NOVEL_003 | P2 Detection Head | **0.4380** | 0.5245 | 0.4374 | 13/15 | yolov8n-p2.yaml, 640px | 2026-04-09 | Needs more epochs |
@@ -225,6 +226,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.5219** (NOVEL_005 — 768px resolution) |
+| NOVEL Series Best | **0.4640** (NOVEL_004) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
