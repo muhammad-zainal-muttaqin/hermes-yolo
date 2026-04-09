@@ -340,8 +340,8 @@ def make_sord_trainer(sigma=0.8):
 
     def on_train_start(trainer):
         """Called after model and criterion are initialized — replace with SORD."""
-        from ultralytics.utils.torch_utils import de_parallel
-        model = de_parallel(trainer.model)
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
         sord_loss = SORDv8DetectionLoss(model, sigma=sigma)
         model.criterion = sord_loss
         print(f"[SORD] Criterion replaced on model (sigma={sigma})")
