@@ -1,0 +1,13 @@
+path: /workspace/dataset-sawit
+train: images/train
+val: images/val
+test: images/test
+
+nc: 4
+names:
+  0: B1
+  1: B2
+  2: B3
+  3: B4
+
+# Ordinal semantics (for SORD loss): B1=ripe, B2=transition, B3=unripe, B4=least_ripe
