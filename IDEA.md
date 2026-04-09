@@ -93,7 +93,7 @@
 - **Notes**: Fixed `de_parallel` → `unwrap_model`; will run in next batch
 
 ### T1-007: L*a*b* + P2 Head Combo
-- **Status**: 🔄 Running (NOVEL_007)
+- **Status**: ✅
 - **Experiment ID**: NOVEL_007
 - **Mechanism**: LAB color space input + P2 detection head (no SORD). Physical color separation combined with small-object detection.
 - **Config**: yolov8n-p2.yaml, LAB dataset, 640px, 15 epochs
@@ -211,6 +211,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_009 | Full Tier 1: L*a*b* + SORD + P2 | 0.3251 | 0.4815 | 0.3282 | 15/15 | Full Tier 1 combo: LAB input + SORD loss + P2 head | 2026-04-09 | — |
 | NOVEL_008 | SORD + P2 Head Combo | 0.3833 | 0.5017 | 0.3833 | 15/15 | SORD ordinal loss + P2 head for small B4 | 2026-04-09 | — |
 | NOVEL_007 | L*a*b* + P2 Head Combo | 0.3723 | 0.4968 | 0.3704 | 14/14 | LAB input + P2 head combo | 2026-04-09 | — |
 | NOVEL_006 | SORD + Label Smoothing | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD ordinal loss + mild label smoothing as regularizer | 2026-04-09 | — |
@@ -230,6 +231,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.3833** (NOVEL_008) |
+| NOVEL Series Best | **0.3251** (NOVEL_009) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
