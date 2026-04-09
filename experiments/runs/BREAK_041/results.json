@@ -1,0 +1,11 @@
+{
+  "experiment_id": "BREAK_041",
+  "name": "Extended_50epochs",
+  "map50": 0.524,
+  "map75": 0.255,
+  "precision": 0.512,
+  "recall": 0.583,
+  "approach": "50 epochs with cosine annealing",
+  "epochs": 50,
+  "note": "More training helps slightly but diminishing returns"
+}

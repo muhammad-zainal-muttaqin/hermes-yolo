@@ -1,0 +1,11 @@
+{
+  "experiment_id": "BREAK_039",
+  "name": "Focal_Loss_Gamma1.5",
+  "map50": 0.5205,
+  "map75": 0.2485,
+  "precision": 0.505,
+  "recall": 0.58,
+  "approach": "Focal loss focusing on hard examples",
+  "gamma": 1.5,
+  "note": "Helps with class imbalance but limited effect"
+}

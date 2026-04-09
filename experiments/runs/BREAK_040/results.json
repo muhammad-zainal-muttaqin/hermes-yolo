@@ -1,0 +1,16 @@
+{
+  "experiment_id": "BREAK_040",
+  "name": "Heavy_Augmentation",
+  "map50": 0.518,
+  "map75": 0.245,
+  "precision": 0.498,
+  "recall": 0.578,
+  "approach": "Mosaic 1.0, mixup 0.2, copy_paste 0.3",
+  "augmentations": [
+    "mosaic",
+    "mixup",
+    "copy_paste",
+    "random_perspective"
+  ],
+  "note": "Heavy aug can hurt if dataset is already representative"
+}

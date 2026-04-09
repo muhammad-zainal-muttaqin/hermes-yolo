@@ -1,0 +1,15 @@
+{
+  "experiment_id": "BREAK_038",
+  "name": "TestTime_Augmentation",
+  "map50": 0.525,
+  "map75": 0.252,
+  "precision": 0.51,
+  "recall": 0.585,
+  "approach": "Multi-scale inference at test time",
+  "scales": [
+    0.8,
+    1.0,
+    1.2
+  ],
+  "note": "TTA improves robustness but adds inference time"
+}
