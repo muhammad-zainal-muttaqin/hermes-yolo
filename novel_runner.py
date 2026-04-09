@@ -436,10 +436,24 @@ names:
 
 # ─── Result Parsing ────────────────────────────────────────────────────────────
 
+def find_results_csv(run_dir: Path) -> Path | None:
+    """Find results.csv in multiple possible locations."""
+    candidates = [
+        run_dir / "train" / "results.csv",          # old format: BREAK_XXX/train/results.csv
+        run_dir / "results.csv",                      # new format: NOVEL_XXX/results.csv
+        # Ultralytics may nest under experiments/ due to name containing slashes
+        BASE_DIR / "runs/detect/experiments/experiments/runs" / run_dir.name / "results.csv",
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    return None
+
+
 def parse_results(run_dir: Path) -> dict:
     """Parse training results from results.csv."""
-    results_csv = run_dir / "train" / "results.csv"
-    if not results_csv.exists():
+    results_csv = find_results_csv(run_dir)
+    if results_csv is None:
         return {}
 
     best_map50 = 0.0
@@ -753,7 +767,6 @@ def run_experiment(config: dict) -> dict:
     """Run a single experiment and return results."""
     exp_id = config["id"]
     run_dir = RUNS_DIR / exp_id
-    results_csv = run_dir / "train" / "results.csv"
 
     print(f"\n{'='*60}")
     print(f"[{exp_id}] {config['name']}")
@@ -762,11 +775,10 @@ def run_experiment(config: dict) -> dict:
     print(f"{'='*60}")
 
     # Skip if already completed with good results
-    if results_csv.exists():
-        existing = parse_results(run_dir)
-        if existing and existing["map50"] > 0.1:
-            print(f"[{exp_id}] Already completed: mAP50={existing['map50']:.4f}. Skipping.")
-            return existing
+    existing = parse_results(run_dir)
+    if existing and existing.get("map50", 0) > 0.1:
+        print(f"[{exp_id}] Already completed: mAP50={existing['map50']:.4f}. Skipping.")
+        return existing
 
     # Check if LAB dataset required
     if config.get("requires_lab"):
