@@ -229,7 +229,7 @@ EXPERIMENTS = [
     },
     {
         "id": "NOVEL_012",
-        "name": "Focal Loss at 768px (Sub-center proxy T2-003)",
+        "name": "768px + LabelSmoothing 0.05 + CosLR (T2-003 variant)",
         "idea_id": "T2-003",
         "epochs": 15,
         "imgsz": 768,
@@ -240,9 +240,7 @@ EXPERIMENTS = [
             "label_smoothing": 0.05,
             "cos_lr": True,
         },
-        "description": "Focal loss γ=2.0 at 768px — hard-example focus proxy for Sub-center ArcFace",
-        "use_fl_gamma": True,
-        "fl_gamma": 2.0,
+        "description": "768px + label_smoothing=0.05 + cos_lr — lighter smoothing variant vs NOVEL_021",
     },
     {
         "id": "NOVEL_013",
