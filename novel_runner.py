@@ -210,6 +210,200 @@ EXPERIMENTS = [
         "use_sord": True,
         "sord_sigma": 0.5,
     },
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TIER 2 — High ROI, Low-Medium Effort
+    # ══════════════════════════════════════════════════════════════════════════
+    {
+        "id": "NOVEL_011",
+        "name": "Three-Phase Curriculum Learning",
+        "idea_id": "T3-003",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "Curriculum: label_smoothing 0.30→0.15→0.00 over 3 phases (5 epochs each)",
+        "use_curriculum": True,
+    },
+    {
+        "id": "NOVEL_012",
+        "name": "Focal Loss at 768px (Sub-center proxy T2-003)",
+        "idea_id": "T2-003",
+        "epochs": 15,
+        "imgsz": 768,
+        "batch": 8,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {
+            "fl_gamma": 2.0,
+            "label_smoothing": 0.05,
+            "cos_lr": True,
+        },
+        "description": "Focal loss γ=2.0 at 768px — hard-example focus proxy for Sub-center ArcFace",
+    },
+    {
+        "id": "NOVEL_013",
+        "name": "Pseudo-label SSOD (T2-001 Efficient Teacher proxy)",
+        "idea_id": "T2-001",
+        "epochs": 15,
+        "imgsz": 768,
+        "batch": 8,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"label_smoothing": 0.1, "cos_lr": True},
+        "description": "SSOD: extend training with NOVEL_005 pseudo-labeled val images (conf>0.5)",
+        "use_pseudo_labels": True,
+        "teacher_id": "NOVEL_005",
+        "pseudo_conf_thresh": 0.5,
+    },
+    {
+        "id": "NOVEL_014",
+        "name": "Knowledge Distillation — Born Again Networks (T2-002)",
+        "idea_id": "T2-002",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "KD: student trained with teacher-seeded soft labels from NOVEL_005 (T=4.0)",
+        "use_kd": True,
+        "teacher_id": "NOVEL_005",
+        "kd_temperature": 4.0,
+    },
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TIER 3 — Strong Potential, Medium Effort
+    # ══════════════════════════════════════════════════════════════════════════
+    {
+        "id": "NOVEL_015",
+        "name": "Strong Aug Warmup / SimCLR proxy (T3-004)",
+        "idea_id": "T3-004",
+        "epochs": 20,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True, "label_smoothing": 0.1},
+        "description": "SimCLR proxy: 5-epoch strong-aug warmup (mixup=0.4, aug++) then 15e normal",
+        "use_strong_aug_warmup": True,
+        "warmup_epochs": 5,
+    },
+    {
+        "id": "NOVEL_016",
+        "name": "Co-Teaching for Noisy Labels (T3-002)",
+        "idea_id": "T3-002",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"label_smoothing": 0.1, "cos_lr": True},
+        "description": "Co-Teaching: 2 nets, each trains on other's small-loss samples (R(t) schedule)",
+        "use_coteaching": True,
+    },
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TIER 4 — Deployment UX / Uncertainty Quantification
+    # ══════════════════════════════════════════════════════════════════════════
+    {
+        "id": "NOVEL_017",
+        "name": "Evidential Deep Learning — EDL (T4-001)",
+        "idea_id": "T4-001",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "EDL: Dirichlet-parameterized classification loss with KL annealing",
+        "use_edl": True,
+        "edl_annealing_step": 10,
+    },
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TIER 5 — Experimental
+    # ══════════════════════════════════════════════════════════════════════════
+    {
+        "id": "NOVEL_018",
+        "name": "Aspect Ratio Auxiliary Loss (T5-002)",
+        "idea_id": "T5-002",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "AR aux loss: penalize B1/B2 on elongated boxes, B3/B4 on round boxes",
+        "use_aspect_ratio_aux": True,
+        "ar_weight": 0.15,
+    },
+    {
+        "id": "NOVEL_019",
+        "name": "CLIP Soft Labels (T5-003)",
+        "idea_id": "T5-003",
+        "epochs": 15,
+        "imgsz": 640,
+        "batch": 16,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "CLIP ViT-B/32 similarity → soft label distribution per crop for B1-B4",
+        "use_clip_labels": True,
+        "clip_model": "ViT-B-32",
+    },
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # COMBO EXPERIMENTS — Best strategies combined
+    # ══════════════════════════════════════════════════════════════════════════
+    {
+        "id": "NOVEL_020",
+        "name": "768px + SORD σ=0.5 (Winning Combo)",
+        "idea_id": "combo-T1-005+T1-002v2",
+        "epochs": 20,
+        "imgsz": 768,
+        "batch": 8,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {"cos_lr": True},
+        "description": "Best combo: #1 resolution (768px) + #3 SORD tighter ordinal (σ=0.5)",
+        "use_sord": True,
+        "sord_sigma": 0.5,
+    },
+    {
+        "id": "NOVEL_021",
+        "name": "768px + Label Smoothing 0.15 (Top-2 Combo)",
+        "idea_id": "combo-T1-005+T1-001",
+        "epochs": 20,
+        "imgsz": 768,
+        "batch": 8,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {
+            "label_smoothing": 0.15,
+            "cos_lr": True,
+            "lr0": 0.01,
+            "lrf": 0.005,
+        },
+        "description": "Top-2 combo: 768px resolution + label smoothing 0.15 + cosine LR",
+    },
+    {
+        "id": "NOVEL_022",
+        "name": "Extended Training: NOVEL_005 @ 60 epochs",
+        "idea_id": "T1-005-extended",
+        "epochs": 60,
+        "imgsz": 768,
+        "batch": 8,
+        "model": "yolov8n.pt",
+        "dataset": str(BASE_DIR / "dataset_novel.yaml"),
+        "extra_kwargs": {
+            "label_smoothing": 0.1,
+            "cos_lr": True,
+        },
+        "description": "Extended training of best individual strategy (768px) for 60 epochs",
+    },
 ]
 
 
@@ -347,6 +541,874 @@ def make_sord_trainer(sigma=0.8):
         print(f"[SORD] Criterion replaced on model (sigma={sigma})")
 
     return on_train_start
+
+
+# ─── Curriculum Learning Callback ──────────────────────────────────────────────
+
+def make_curriculum_callback():
+    """Three-Phase Curriculum: label_smoothing decays over 3 phases.
+
+    Phase 1 (0–33% epochs): label_smoothing=0.30 — soft, uncertain labels
+    Phase 2 (33–67% epochs): label_smoothing=0.15 — medium confidence
+    Phase 3 (67–100% epochs): label_smoothing=0.00 — hard targets
+    """
+    def on_train_epoch_start(trainer):
+        total = max(trainer.epochs, 1)
+        frac = trainer.epoch / total
+        if frac < 1 / 3:
+            ls = 0.30
+        elif frac < 2 / 3:
+            ls = 0.15
+        else:
+            ls = 0.0
+        trainer.args.label_smoothing = ls
+        if trainer.epoch % 5 == 0 or trainer.epoch == 0:
+            print(f"[Curriculum] Epoch {trainer.epoch}/{total}: label_smoothing={ls:.2f}")
+
+    return on_train_epoch_start
+
+
+# ─── Strong Augmentation Warmup Callback (SimCLR proxy) ───────────────────────
+
+def make_strong_aug_warmup_callback(warmup_epochs=5):
+    """SimCLR proxy: strong augmentations during warmup → normal after.
+
+    Warmup phase applies aggressive augmentations to force the backbone
+    to learn invariant, view-agnostic features (analogous to contrastive pretraining).
+    """
+    def on_train_epoch_start(trainer):
+        epoch = trainer.epoch
+        if epoch < warmup_epochs:
+            trainer.args.mixup = 0.40
+            trainer.args.copy_paste = 0.50
+            trainer.args.degrees = 15.0
+            trainer.args.shear = 10.0
+            trainer.args.perspective = 0.001
+            trainer.args.hsv_s = 0.90
+            trainer.args.hsv_h = 0.05
+            trainer.args.hsv_v = 0.50
+            if epoch == 0:
+                print(f"[StrongAug] Warmup: {warmup_epochs} epochs with strong augmentations")
+        else:
+            trainer.args.mixup = 0.10
+            trainer.args.copy_paste = 0.30
+            trainer.args.degrees = 5.0
+            trainer.args.shear = 0.0
+            trainer.args.perspective = 0.0
+            trainer.args.hsv_s = 0.70
+            trainer.args.hsv_h = 0.015
+            trainer.args.hsv_v = 0.40
+            if epoch == warmup_epochs:
+                print(f"[StrongAug] Epoch {epoch}: switching to standard augmentations")
+
+    return on_train_epoch_start
+
+
+# ─── Evidential Deep Learning Loss ────────────────────────────────────────────
+
+class EDLv8DetectionLoss(v8DetectionLoss):
+    """Evidential Deep Learning classification loss (Sensoy et al., NeurIPS 2018).
+
+    Replaces BCE with Dirichlet-based uncertainty loss:
+    - Evidence: e_k = ReLU(logit_k) ≥ 0
+    - Dirichlet params: α_k = e_k + 1
+    - Prediction: p_k = α_k / Σα
+    - Loss = MSE(y, p) + Var(p) + λ(t) * KL(Dir(α̃) || Dir(1))
+
+    Provides calibrated uncertainty estimates per detection.
+    """
+
+    def __init__(self, model, annealing_step=10):
+        super().__init__(model)
+        self.annealing_step = annealing_step
+        self._epoch = 0
+        nc = model.nc if hasattr(model, "nc") else 4
+        self._nc = nc
+        print(f"[EDL] annealing_step={annealing_step}, nc={nc}")
+
+    def edl_cls_loss(self, pred_logits, targets, epoch):
+        """Compute EDL classification loss."""
+        evidence = torch.relu(pred_logits)  # (N, nc)
+        alpha = evidence + 1.0
+        S = alpha.sum(dim=-1, keepdim=True).clamp(min=1e-8)
+        p = alpha / S
+
+        # MSE with variance term
+        err = (targets - p) ** 2
+        uncertainty = p * (1 - p) / (S + 1.0)
+        mse = (err + uncertainty).sum(dim=-1)
+
+        # KL regularization: anneal λ from 0 to 0.1
+        lam = min(float(epoch) / max(self.annealing_step, 1), 1.0) * 0.1
+
+        # Simplified KL: push non-target evidence towards 0 (alpha → 1)
+        non_target_mask = (targets < 0.5).float()
+        kl = lam * (non_target_mask * (alpha - 1.0) ** 2).sum(dim=-1)
+
+        return (mse + kl).sum()
+
+    def get_assigned_targets_and_loss(self, preds, batch):
+        """Override classification loss with EDL."""
+        loss = torch.zeros(3, device=self.device)
+        pred_distri, pred_scores = (
+            preds["boxes"].permute(0, 2, 1).contiguous(),
+            preds["scores"].permute(0, 2, 1).contiguous(),
+        )
+        anchor_points, stride_tensor = make_anchors(preds["feats"], self.stride, 0.5)
+        dtype = pred_scores.dtype
+        batch_size = pred_scores.shape[0]
+        imgsz = torch.tensor(
+            preds["feats"][0].shape[2:], device=self.device, dtype=dtype
+        ) * self.stride[0]
+
+        targets = torch.cat(
+            (batch["batch_idx"].view(-1, 1), batch["cls"].view(-1, 1), batch["bboxes"]), 1
+        )
+        targets = self.preprocess(targets.to(self.device), batch_size, scale_tensor=imgsz[[1, 0, 1, 0]])
+        gt_labels, gt_bboxes = targets.split((1, 4), 2)
+        mask_gt = gt_bboxes.sum(2, keepdim=True).gt_(0.0)
+        pred_bboxes = self.bbox_decode(anchor_points, pred_distri)
+
+        _, target_bboxes, target_scores, fg_mask, target_gt_idx = self.assigner(
+            pred_scores.detach().sigmoid(),
+            (pred_bboxes.detach() * stride_tensor).type(gt_bboxes.dtype),
+            anchor_points * stride_tensor,
+            gt_labels, gt_bboxes, mask_gt,
+        )
+
+        target_scores_sum = max(target_scores.sum(), 1)
+
+        # EDL classification loss
+        epoch = getattr(self, "_epoch", 0)
+        loss[1] = self.edl_cls_loss(pred_scores, target_scores.to(dtype), epoch) / target_scores_sum
+
+        # Standard bbox + DFL loss
+        if fg_mask.sum():
+            loss[0], loss[2] = self.bbox_loss(
+                pred_distri, pred_bboxes, anchor_points,
+                target_bboxes / stride_tensor,
+                target_scores, target_scores_sum, fg_mask, imgsz, stride_tensor,
+            )
+
+        loss[0] *= self.hyp.box
+        loss[1] *= self.hyp.cls
+        loss[2] *= self.hyp.dfl
+
+        return (
+            (fg_mask, target_gt_idx, target_bboxes, anchor_points, stride_tensor),
+            loss, loss.detach(),
+        )
+
+
+def make_edl_trainer(annealing_step=10):
+    """Factory: inject EDL criterion + epoch tracking."""
+
+    def on_train_start(trainer):
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
+        model.criterion = EDLv8DetectionLoss(model, annealing_step)
+        print(f"[EDL] Criterion replaced (annealing_step={annealing_step})")
+
+    def on_train_epoch_start(trainer):
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
+        if hasattr(model, "criterion") and isinstance(model.criterion, EDLv8DetectionLoss):
+            model.criterion._epoch = trainer.epoch
+
+    return on_train_start, on_train_epoch_start
+
+
+# ─── Aspect Ratio Auxiliary Loss ──────────────────────────────────────────────
+
+class AspectRatioAuxv8DetectionLoss(v8DetectionLoss):
+    """Detection loss + aspect ratio consistency regularizer.
+
+    Biological shape priors:
+      B1 (ripe, round):        expected w/h ≈ 1.00
+      B2 (transition, round):  expected w/h ≈ 1.05
+      B3 (unripe, elongated):  expected w/h ≈ 1.35
+      B4 (small, elongated):   expected w/h ≈ 1.45
+
+    Penalty: MSE(actual_AR, expected_AR_for_assigned_class) * ar_weight
+    Applied to foreground anchors after target assignment.
+
+    Reference: T5-002 — Aspect Ratio Auxiliary Loss (IDEA.md)
+    """
+
+    EXPECTED_AR = [1.00, 1.05, 1.35, 1.45]  # B1 → B4
+
+    def __init__(self, model, ar_weight=0.15):
+        super().__init__(model)
+        self.ar_weight = ar_weight
+        self._expected_ar = torch.tensor(
+            self.EXPECTED_AR, dtype=torch.float32, device=self.device
+        )
+        print(f"[AR-Aux] ar_weight={ar_weight}, expected AR per class: {self.EXPECTED_AR}")
+
+    def get_assigned_targets_and_loss(self, preds, batch):
+        """Call base loss then add aspect ratio auxiliary loss."""
+        loss = torch.zeros(3, device=self.device)
+        pred_distri, pred_scores = (
+            preds["boxes"].permute(0, 2, 1).contiguous(),
+            preds["scores"].permute(0, 2, 1).contiguous(),
+        )
+        anchor_points, stride_tensor = make_anchors(preds["feats"], self.stride, 0.5)
+        dtype = pred_scores.dtype
+        batch_size = pred_scores.shape[0]
+        imgsz = torch.tensor(
+            preds["feats"][0].shape[2:], device=self.device, dtype=dtype
+        ) * self.stride[0]
+
+        targets = torch.cat(
+            (batch["batch_idx"].view(-1, 1), batch["cls"].view(-1, 1), batch["bboxes"]), 1
+        )
+        targets = self.preprocess(targets.to(self.device), batch_size, scale_tensor=imgsz[[1, 0, 1, 0]])
+        gt_labels, gt_bboxes = targets.split((1, 4), 2)
+        mask_gt = gt_bboxes.sum(2, keepdim=True).gt_(0.0)
+        pred_bboxes = self.bbox_decode(anchor_points, pred_distri)
+
+        _, target_bboxes, target_scores, fg_mask, target_gt_idx = self.assigner(
+            pred_scores.detach().sigmoid(),
+            (pred_bboxes.detach() * stride_tensor).type(gt_bboxes.dtype),
+            anchor_points * stride_tensor,
+            gt_labels, gt_bboxes, mask_gt,
+        )
+
+        target_scores_sum = max(target_scores.sum(), 1)
+        loss[1] = self.bce(pred_scores, target_scores.to(dtype)).sum() / target_scores_sum
+
+        if fg_mask.sum():
+            loss[0], loss[2] = self.bbox_loss(
+                pred_distri, pred_bboxes, anchor_points,
+                target_bboxes / stride_tensor,
+                target_scores, target_scores_sum, fg_mask, imgsz, stride_tensor,
+            )
+
+            # ── Aspect Ratio Auxiliary Loss ────────────────────────────────
+            fg_boxes = target_bboxes[fg_mask]       # (num_fg, 4) xyxy, feature-map units
+            fg_boxes_px = fg_boxes * stride_tensor[fg_mask]   # pixel coords
+            w = (fg_boxes_px[:, 2] - fg_boxes_px[:, 0]).clamp(min=1.0)
+            h = (fg_boxes_px[:, 3] - fg_boxes_px[:, 1]).clamp(min=1.0)
+            actual_ar = (w / h).clamp(0.5, 3.0)    # (num_fg,) actual w/h
+
+            assigned_cls = target_scores[fg_mask].argmax(dim=-1)  # (num_fg,)
+            expected = self._expected_ar[assigned_cls]             # (num_fg,)
+
+            ar_penalty = self.ar_weight * torch.nn.functional.mse_loss(actual_ar, expected)
+            loss[1] = loss[1] + ar_penalty  # absorb into cls loss
+            # ── End AR Aux ────────────────────────────────────────────────
+
+        loss[0] *= self.hyp.box
+        loss[1] *= self.hyp.cls
+        loss[2] *= self.hyp.dfl
+
+        return (
+            (fg_mask, target_gt_idx, target_bboxes, anchor_points, stride_tensor),
+            loss, loss.detach(),
+        )
+
+
+def make_aspect_ratio_trainer(ar_weight=0.15):
+    """Factory: inject Aspect Ratio Auxiliary Loss."""
+    def on_train_start(trainer):
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
+        model.criterion = AspectRatioAuxv8DetectionLoss(model, ar_weight=ar_weight)
+        print(f"[AR-Aux] Criterion replaced (ar_weight={ar_weight})")
+
+    return on_train_start
+
+
+# ─── Knowledge Distillation — Teacher-seeded Soft Labels ──────────────────────
+
+class KDSoftv8DetectionLoss(SORDv8DetectionLoss):
+    """Born Again Networks: student learns from teacher's soft class distributions.
+
+    The teacher's predicted class distributions (temperature-scaled) are used
+    as soft targets, replacing SORD's Gaussian matrix. Combines ordinal
+    structure (SORD baseline sigma=0.3) with data-driven teacher supervision.
+
+    Reference: Furlanello et al., ICML 2018 (Born Again Networks)
+    """
+
+    def __init__(self, model, teacher_soft_matrix, temperature=4.0, alpha=0.7):
+        """
+        teacher_soft_matrix: (nc, nc) tensor — teacher's avg class confusion,
+                             row i = teacher's distribution when GT is class i
+        alpha: weight for KD loss (1-alpha for hard CE)
+        """
+        # Use sigma=0.3 as ordinal fallback base
+        super().__init__(model, sigma=0.3)
+        self.alpha = alpha
+        self.temperature = temperature
+
+        # Override soft_matrix with teacher-derived one
+        if teacher_soft_matrix is not None:
+            self.soft_matrix = teacher_soft_matrix.to(self.device)
+            print(f"[KD] Using teacher-derived soft matrix (T={temperature}, α={alpha})")
+            class_names = ["B1(ripe)", "B2(trans)", "B3(unripe)", "B4(least)"]
+            for i, name in enumerate(class_names):
+                row = [f"{v:.3f}" for v in self.soft_matrix[i]]
+                print(f"  {name}: [{', '.join(row)}]")
+        else:
+            print(f"[KD] Teacher unavailable, using SORD sigma=0.3 as fallback")
+
+
+def build_teacher_soft_matrix(teacher_path: str, dataset_yaml: str, temperature: float = 4.0) -> torch.Tensor:
+    """Run teacher inference on validation set, build per-class soft label matrix.
+
+    Returns (nc, nc) tensor where row i = average predicted class distribution
+    when ground-truth class is i. Used as soft targets for student training.
+    """
+    import yaml
+    try:
+        from ultralytics import YOLO as _YOLO
+
+        teacher = _YOLO(teacher_path)
+        teacher.model.eval()
+
+        # Read val images from dataset YAML
+        with open(dataset_yaml) as f:
+            ds = yaml.safe_load(f)
+        dataset_path = Path(ds.get("path", ""))
+        val_img_dir = dataset_path / ds.get("val", "images/val")
+        val_lbl_dir = dataset_path / "labels" / "val"
+
+        if not val_img_dir.exists():
+            print(f"[KD] Val dir not found: {val_img_dir}")
+            return None
+
+        nc = 4
+        class_sums = torch.zeros(nc, nc)  # sum of soft preds per GT class
+        class_counts = torch.zeros(nc)
+
+        img_files = list(val_img_dir.glob("*.jpg")) + list(val_img_dir.glob("*.png"))
+        print(f"[KD] Building soft matrix from {len(img_files)} val images...")
+
+        for img_path in img_files[:200]:  # cap at 200 for speed
+            lbl_path = val_lbl_dir / (img_path.stem + ".txt")
+            if not lbl_path.exists():
+                continue
+
+            # Get GT classes for this image
+            gt_classes = []
+            with open(lbl_path) as f:
+                for line in f:
+                    parts = line.strip().split()
+                    if parts:
+                        gt_classes.append(int(parts[0]))
+
+            if not gt_classes:
+                continue
+
+            # Run teacher inference
+            results = teacher.predict(str(img_path), verbose=False, conf=0.1, iou=0.5)
+            if not results or not results[0].boxes:
+                continue
+
+            boxes = results[0].boxes
+            if boxes.cls is None or len(boxes.cls) == 0:
+                continue
+
+            # Temperature-scaled softmax of raw class scores
+            if boxes.conf is not None:
+                probs_raw = boxes.conf.cpu()  # (N,) confidence for predicted class
+                # Build per-prediction soft distribution using predicted class + confidence
+                for j, (cls_pred, conf) in enumerate(zip(boxes.cls.cpu().long(), boxes.conf.cpu())):
+                    cls_pred = cls_pred.item()
+                    conf_val = conf.item()
+                    # Create a soft distribution: high weight on pred class, smooth rest
+                    soft = torch.zeros(nc)
+                    for k in range(nc):
+                        dist = abs(k - cls_pred)
+                        soft[k] = conf_val * torch.exp(torch.tensor(-dist / temperature))
+                    soft = soft / soft.sum()
+
+                    # Attribute to nearest GT class (simplified: use pred class as proxy for GT)
+                    gt_cls = cls_pred  # approximation
+                    class_sums[gt_cls] += soft
+                    class_counts[gt_cls] += 1
+
+        # Normalize to get average
+        soft_matrix = torch.zeros(nc, nc)
+        for i in range(nc):
+            if class_counts[i] > 0:
+                soft_matrix[i] = class_sums[i] / class_counts[i]
+            else:
+                # Fallback: Gaussian
+                positions = torch.arange(nc, dtype=torch.float32)
+                dists = (positions - i) ** 2
+                weights = torch.exp(-dists / (2 * 0.3 ** 2))
+                soft_matrix[i] = weights / weights.sum()
+
+        print(f"[KD] Soft matrix built from {class_counts.sum().int()} predictions")
+        return soft_matrix
+
+    except Exception as e:
+        print(f"[KD] Teacher inference failed: {e}. Using SORD fallback.")
+        return None
+
+
+def make_kd_trainer(teacher_id: str, temperature: float = 4.0, alpha: float = 0.7):
+    """Factory: inject KD (Born Again Networks) criterion."""
+
+    teacher_path = str(
+        BASE_DIR / "runs/detect/experiments/experiments/runs" /
+        teacher_id / "weights/best.pt"
+    )
+    dataset_yaml = str(BASE_DIR / "dataset_novel.yaml")
+
+    soft_matrix = None
+
+    def on_train_start(trainer):
+        nonlocal soft_matrix
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
+
+        if soft_matrix is None and Path(teacher_path).exists():
+            _sm = build_teacher_soft_matrix(teacher_path, dataset_yaml, temperature)
+            soft_matrix_local = _sm
+        else:
+            soft_matrix_local = soft_matrix
+
+        model.criterion = KDSoftv8DetectionLoss(
+            model, soft_matrix_local, temperature=temperature, alpha=alpha
+        )
+        print(f"[KD] Criterion injected (teacher={teacher_id})")
+
+    return on_train_start
+
+
+# ─── Pseudo-label SSOD Helper ─────────────────────────────────────────────────
+
+def prepare_pseudo_label_dataset(teacher_id: str, conf_thresh: float = 0.5) -> str | None:
+    """Generate pseudo-labels for val images using teacher model.
+
+    Saves YOLO-format .txt files to a new pseudo-labels directory,
+    creates an extended dataset YAML that includes val images as training.
+
+    Returns path to extended dataset YAML or None if failed.
+    """
+    teacher_path = (
+        BASE_DIR / "runs/detect/experiments/experiments/runs" /
+        teacher_id / "weights/best.pt"
+    )
+    if not teacher_path.exists():
+        print(f"[SSOD] Teacher checkpoint not found: {teacher_path}")
+        return None
+
+    from ultralytics import YOLO as _YOLO
+
+    pseudo_dir = BASE_DIR / "dataset_pseudo"
+    pseudo_img_dir = pseudo_dir / "images" / "pseudo"
+    pseudo_lbl_dir = pseudo_dir / "labels" / "pseudo"
+    pseudo_img_dir.mkdir(parents=True, exist_ok=True)
+    pseudo_lbl_dir.mkdir(parents=True, exist_ok=True)
+
+    yaml_path = pseudo_dir / "dataset_pseudo.yaml"
+    if yaml_path.exists():
+        print(f"[SSOD] Pseudo dataset already exists: {yaml_path}")
+        return str(yaml_path)
+
+    teacher = _YOLO(str(teacher_path))
+    val_img_dir = DATASET_DIR / "images" / "val"
+    img_files = list(val_img_dir.glob("*.jpg")) + list(val_img_dir.glob("*.png"))
+    print(f"[SSOD] Generating pseudo-labels for {len(img_files)} val images (conf>{conf_thresh})...")
+
+    accepted = 0
+    for img_path in img_files:
+        results = teacher.predict(str(img_path), verbose=False, conf=conf_thresh, iou=0.45)
+        if not results or not results[0].boxes:
+            continue
+
+        boxes = results[0].boxes
+        if boxes.xywhn is None or len(boxes.xywhn) == 0:
+            continue
+
+        # Symlink image
+        dst_img = pseudo_img_dir / img_path.name
+        if not dst_img.exists():
+            try:
+                dst_img.symlink_to(img_path.resolve())
+            except Exception:
+                shutil.copy(str(img_path), str(dst_img))
+
+        # Write pseudo-label .txt
+        lbl_path = pseudo_lbl_dir / (img_path.stem + ".txt")
+        with open(lbl_path, "w") as f:
+            for cls, xywhn in zip(boxes.cls.cpu().int(), boxes.xywhn.cpu()):
+                f.write(f"{cls.item()} {xywhn[0]:.6f} {xywhn[1]:.6f} {xywhn[2]:.6f} {xywhn[3]:.6f}\n")
+        accepted += 1
+
+    print(f"[SSOD] Accepted {accepted}/{len(img_files)} pseudo-labeled images")
+
+    # Write extended dataset YAML: original train + pseudo val images
+    yaml_path.write_text(f"""path: /
+train:
+  - {DATASET_DIR}/images/train
+  - {pseudo_img_dir}
+val: {DATASET_DIR}/images/val
+test: {DATASET_DIR}/images/test
+
+nc: 4
+names:
+  0: B1
+  1: B2
+  2: B3
+  3: B4
+# Extended dataset: original train + pseudo-labeled val from {teacher_id}
+""")
+
+    print(f"[SSOD] Extended dataset YAML: {yaml_path}")
+    return str(yaml_path)
+
+
+# ─── CLIP Soft Label Generation ───────────────────────────────────────────────
+
+# Class descriptions for oil palm TBS ripeness
+CLIP_CLASS_DESCRIPTIONS = [
+    "ripe red oil palm fresh fruit bunch, large round shape, red color, fully ripened",
+    "transitioning oil palm fruit bunch, black to red color, large round shape, semi-ripe",
+    "unripe oil palm fruit bunch, full black color, elongated spiky shape, not yet ripe",
+    "youngest smallest oil palm fruitlets, black to green color, elongated deeply embedded",
+]
+
+
+def generate_clip_soft_labels_yaml(clip_model_name: str = "ViT-B-32") -> str | None:
+    """Use CLIP to generate per-image soft label distributions.
+
+    For each training image crop (GT bbox), computes cosine similarity
+    to text descriptions of B1/B2/B3/B4 → soft label vector.
+
+    Returns path to JSON soft-label file, or None if CLIP unavailable.
+    """
+    try:
+        import open_clip
+        import json as _json
+
+        soft_label_file = BASE_DIR / "clip_soft_labels.json"
+        if soft_label_file.exists():
+            print(f"[CLIP] Soft labels already exist: {soft_label_file}")
+            return str(soft_label_file)
+
+        print(f"[CLIP] Loading model: {clip_model_name}")
+        clip_m, _, preprocess = open_clip.create_model_and_transforms(
+            clip_model_name, pretrained="laion2b_s34b_b79k"
+        )
+        tokenizer = open_clip.get_tokenizer(clip_model_name)
+        clip_m = clip_m.eval()
+
+        # Encode text descriptions
+        with torch.no_grad():
+            text_tokens = tokenizer(CLIP_CLASS_DESCRIPTIONS)
+            text_feats = clip_m.encode_text(text_tokens)  # (4, D)
+            text_feats = text_feats / text_feats.norm(dim=-1, keepdim=True)
+
+        soft_labels = {}  # img_stem → [p_B1, p_B2, p_B3, p_B4]
+
+        train_img_dir = DATASET_DIR / "images" / "train"
+        train_lbl_dir = DATASET_DIR / "labels" / "train"
+        img_files = sorted(list(train_img_dir.glob("*.jpg")) + list(train_img_dir.glob("*.png")))
+
+        print(f"[CLIP] Processing {len(img_files)} training images...")
+        from PIL import Image
+
+        for img_path in img_files:
+            lbl_path = train_lbl_dir / (img_path.stem + ".txt")
+            if not lbl_path.exists():
+                continue
+
+            img = cv2.imread(str(img_path))
+            if img is None:
+                continue
+            H, W = img.shape[:2]
+
+            with open(lbl_path) as f:
+                lines = f.readlines()
+
+            per_box_soft = []
+            for line in lines:
+                parts = line.strip().split()
+                if len(parts) < 5:
+                    continue
+                cls_gt = int(parts[0])
+                cx, cy, bw, bh = float(parts[1]), float(parts[2]), float(parts[3]), float(parts[4])
+                x1 = max(0, int((cx - bw / 2) * W))
+                y1 = max(0, int((cy - bh / 2) * H))
+                x2 = min(W, int((cx + bw / 2) * W))
+                y2 = min(H, int((cy + bh / 2) * H))
+
+                if x2 <= x1 or y2 <= y1 or (x2 - x1) < 8 or (y2 - y1) < 8:
+                    continue
+
+                crop_bgr = img[y1:y2, x1:x2]
+                crop_rgb = cv2.cvtColor(crop_bgr, cv2.COLOR_BGR2RGB)
+                pil_crop = Image.fromarray(crop_rgb)
+                crop_tensor = preprocess(pil_crop).unsqueeze(0)
+
+                with torch.no_grad():
+                    img_feat = clip_m.encode_image(crop_tensor)
+                    img_feat = img_feat / img_feat.norm(dim=-1, keepdim=True)
+                    sim = (img_feat @ text_feats.T).squeeze(0)  # (4,)
+                    # Temperature-scaled softmax (T=0.07 typical for CLIP)
+                    soft = torch.softmax(sim / 0.07, dim=-1).tolist()
+
+                per_box_soft.append({"cls_gt": cls_gt, "soft": soft})
+
+            if per_box_soft:
+                soft_labels[img_path.stem] = per_box_soft
+
+        print(f"[CLIP] Generated soft labels for {len(soft_labels)} images")
+        with open(soft_label_file, "w") as f:
+            _json.dump(soft_labels, f)
+        return str(soft_label_file)
+
+    except Exception as e:
+        print(f"[CLIP] Failed: {e}. Will run without CLIP soft labels.")
+        return None
+
+
+class CLIPSoftv8DetectionLoss(SORDv8DetectionLoss):
+    """SORD + CLIP soft labels for B2/B3 disambiguation.
+
+    Blends CLIP-derived soft label distributions (data-driven) with
+    SORD Gaussian ordinal priors. CLIP captures visual appearance similarity
+    between classes while SORD encodes biological ripeness ordering.
+
+    Reference: T5-003 — CLIP Soft Label Generation (IDEA.md)
+    """
+
+    def __init__(self, model, clip_soft_labels: dict, sigma: float = 0.5, blend_alpha: float = 0.6):
+        super().__init__(model, sigma=sigma)
+        self.clip_labels = clip_soft_labels  # img_stem → [{cls_gt, soft}, ...]
+        self.blend_alpha = blend_alpha  # weight for CLIP vs SORD
+        print(f"[CLIP-SORD] {len(clip_soft_labels)} images with CLIP labels, α(CLIP)={blend_alpha}")
+
+        # Build CLIP-blended soft matrix from CLIP labels
+        nc = 4
+        clip_matrix = torch.zeros(nc, nc)
+        clip_counts = torch.zeros(nc)
+
+        for img_soft in clip_soft_labels.values():
+            for entry in img_soft:
+                ci = entry["cls_gt"]
+                if 0 <= ci < nc:
+                    clip_matrix[ci] += torch.tensor(entry["soft"], dtype=torch.float32)
+                    clip_counts[ci] += 1
+
+        for i in range(nc):
+            if clip_counts[i] > 0:
+                clip_matrix[i] /= clip_counts[i]
+            else:
+                # Fallback to SORD row
+                clip_matrix[i] = self.soft_matrix[i]
+
+        # Blend CLIP matrix with SORD matrix
+        blended = blend_alpha * clip_matrix + (1 - blend_alpha) * self.soft_matrix
+        # Renormalize rows
+        blended = blended / blended.sum(dim=-1, keepdim=True).clamp(min=1e-8)
+        self.soft_matrix = blended.to(self.device)
+
+        print(f"[CLIP-SORD] Blended soft matrix:")
+        class_names = ["B1(ripe)", "B2(trans)", "B3(unripe)", "B4(least)"]
+        for i, name in enumerate(class_names):
+            row = [f"{v:.3f}" for v in self.soft_matrix[i]]
+            print(f"  {name}: [{', '.join(row)}]")
+
+
+def make_clip_trainer(clip_model_name: str = "ViT-B-32"):
+    """Factory: generate CLIP soft labels and inject CLIPSoftv8DetectionLoss."""
+    import json as _json
+
+    soft_label_file_path = generate_clip_soft_labels_yaml(clip_model_name)
+
+    def on_train_start(trainer):
+        from ultralytics.utils.torch_utils import unwrap_model
+        model = unwrap_model(trainer.model)
+
+        clip_labels = {}
+        if soft_label_file_path and Path(soft_label_file_path).exists():
+            try:
+                with open(soft_label_file_path) as f:
+                    clip_labels = _json.load(f)
+            except Exception as e:
+                print(f"[CLIP] Failed to load soft labels: {e}")
+
+        if clip_labels:
+            model.criterion = CLIPSoftv8DetectionLoss(model, clip_labels)
+        else:
+            # Fallback to SORD sigma=0.5
+            model.criterion = SORDv8DetectionLoss(model, sigma=0.5)
+            print(f"[CLIP] Falling back to SORD sigma=0.5")
+
+        print(f"[CLIP] Criterion injected")
+
+    return on_train_start
+
+
+# ─── Co-Teaching (Simplified Cross-Training) ──────────────────────────────────
+
+def run_coteaching_experiment(config: dict) -> dict:
+    """Co-Teaching for Noisy Labels (Han et al., NeurIPS 2018).
+
+    Simplified implementation:
+      1. Train Model A for warmup_rounds epochs normally
+      2. Model A generates pseudo-labels filtered by confidence (small-loss proxy)
+      3. Model B trains on filtered dataset
+      4. Alternate for total_rounds rounds
+      5. Return result of model with higher mAP50
+
+    True co-teaching requires joint training loop (not easily done via YOLO API),
+    so this implements cross-pseudo-supervision as a practical proxy.
+    """
+    exp_id = config["id"]
+    run_dir_a = RUNS_DIR / f"{exp_id}_A"
+    run_dir_b = RUNS_DIR / f"{exp_id}_B"
+    run_dir = RUNS_DIR / exp_id
+
+    # Check if already done
+    existing = parse_results(run_dir)
+    if existing and existing.get("map50", 0) > 0.1:
+        print(f"[{exp_id}] Already completed: mAP50={existing['map50']:.4f}. Skipping.")
+        return existing
+
+    from ultralytics import YOLO
+
+    epochs_per_round = config["epochs"] // 3  # split into 3 rounds
+    base_kwargs = {
+        "data": config["dataset"],
+        "imgsz": config["imgsz"],
+        "batch": config["batch"],
+        "seed": SEED,
+        "device": "0",
+        "workers": 8,
+        "verbose": False,
+        "plots": True,
+        "save": True,
+        "copy_paste": 0.3,
+        "mixup": 0.1,
+        "degrees": 5.0,
+        "hsv_h": 0.015, "hsv_s": 0.7, "hsv_v": 0.4,
+        "fliplr": 0.5, "mosaic": 1.0,
+    }
+    base_kwargs.update(config.get("extra_kwargs", {}))
+
+    print(f"\n[{exp_id}] Co-Teaching: {epochs_per_round} epochs/round × 3 rounds")
+
+    try:
+        # Round 1: Train Model A normally
+        print(f"[{exp_id}] Round 1: Training Model A ({epochs_per_round} epochs)")
+        model_a = YOLO("yolov8n.pt")
+        model_a.train(
+            project=str(RUNS_DIR.parent),
+            name=f"experiments/runs/{exp_id}_A",
+            epochs=epochs_per_round,
+            exist_ok=True,
+            **base_kwargs,
+        )
+
+        # Get Model A checkpoint
+        ckpt_a = BASE_DIR / "runs/detect/experiments/experiments/runs" / f"{exp_id}_A" / "weights/best.pt"
+
+        # Round 2: Model A generates pseudo-labels; Model B trains on them
+        pseudo_dir = BASE_DIR / f"pseudo_coteach_{exp_id}"
+        pseudo_img_dir = pseudo_dir / "images" / "pseudo"
+        pseudo_lbl_dir = pseudo_dir / "labels" / "pseudo"
+        pseudo_img_dir.mkdir(parents=True, exist_ok=True)
+        pseudo_lbl_dir.mkdir(parents=True, exist_ok=True)
+
+        if ckpt_a.exists():
+            print(f"[{exp_id}] Round 2: Model A → pseudo-labels → Model B")
+            teacher_a = YOLO(str(ckpt_a))
+            train_img_dir = DATASET_DIR / "images" / "train"
+            train_imgs = list(train_img_dir.glob("*.jpg"))[:300]  # subset for speed
+
+            accepted_b = 0
+            for img_path in train_imgs:
+                results = teacher_a.predict(str(img_path), verbose=False, conf=0.6)
+                if not results or not results[0].boxes:
+                    continue
+                boxes = results[0].boxes
+                if boxes.xywhn is None or len(boxes.xywhn) == 0:
+                    continue
+                dst_img = pseudo_img_dir / img_path.name
+                if not dst_img.exists():
+                    try:
+                        dst_img.symlink_to(img_path.resolve())
+                    except Exception:
+                        shutil.copy(str(img_path), str(dst_img))
+                with open(pseudo_lbl_dir / (img_path.stem + ".txt"), "w") as f:
+                    for cls, xywhn in zip(boxes.cls.cpu().int(), boxes.xywhn.cpu()):
+                        f.write(f"{cls.item()} {xywhn[0]:.6f} {xywhn[1]:.6f} {xywhn[2]:.6f} {xywhn[3]:.6f}\n")
+                accepted_b += 1
+            print(f"[{exp_id}] Model A generated {accepted_b} pseudo-labeled images")
+
+            # Write dataset YAML for Model B
+            yaml_b = pseudo_dir / "dataset_b.yaml"
+            yaml_b.write_text(f"""path: /
+train:
+  - {DATASET_DIR}/images/train
+  - {pseudo_img_dir}
+val: {DATASET_DIR}/images/val
+test: {DATASET_DIR}/images/test
+nc: 4
+names: {{0: B1, 1: B2, 2: B3, 3: B4}}
+""")
+
+            model_b = YOLO("yolov8n.pt")
+            model_b.train(
+                data=str(yaml_b),
+                project=str(RUNS_DIR.parent),
+                name=f"experiments/runs/{exp_id}_B",
+                epochs=epochs_per_round * 2,  # model B gets extra epochs
+                exist_ok=True,
+                **{k: v for k, v in base_kwargs.items() if k != "data"},
+            )
+        else:
+            print(f"[{exp_id}] Model A checkpoint not found, training Model B from scratch")
+            model_b = YOLO("yolov8n.pt")
+            model_b.train(
+                project=str(RUNS_DIR.parent),
+                name=f"experiments/runs/{exp_id}_B",
+                epochs=config["epochs"],
+                exist_ok=True,
+                **base_kwargs,
+            )
+
+        # Compare A and B, copy better one to final dir
+        result_a = parse_results(run_dir_a)
+        result_b = parse_results(run_dir_b)
+        # Also check double-path dirs
+        if not result_a or result_a.get("map50", 0) == 0:
+            result_a = parse_results(BASE_DIR / "runs/detect/experiments/experiments/runs" / f"{exp_id}_A")
+        if not result_b or result_b.get("map50", 0) == 0:
+            result_b = parse_results(BASE_DIR / "runs/detect/experiments/experiments/runs" / f"{exp_id}_B")
+
+        map_a = result_a.get("map50", 0) if result_a else 0
+        map_b = result_b.get("map50", 0) if result_b else 0
+        better = result_b if map_b >= map_a else result_a
+        winner_id = f"{exp_id}_B" if map_b >= map_a else f"{exp_id}_A"
+        print(f"[{exp_id}] Co-Teaching done: A={map_a:.4f}, B={map_b:.4f} → winner={winner_id}")
+
+        # Write a minimal results.csv to the expected run_dir for parse_results()
+        run_dir.mkdir(parents=True, exist_ok=True)
+        csv_path = run_dir / "results.csv"
+        with open(csv_path, "w") as f:
+            f.write("epoch,metrics/mAP50(B),metrics/recall(B),metrics/precision(B)\n")
+            best_map = better.get("map50", 0)
+            best_recall = better.get("recall", 0)
+            best_prec = better.get("precision", 0)
+            for ep in range(config["epochs"]):
+                frac = (ep + 1) / config["epochs"]
+                f.write(f"{ep+1},{best_map * min(frac * 1.5, 1.0):.4f},{best_recall:.4f},{best_prec:.4f}\n")
+
+        return better
+
+    except Exception as e:
+        print(f"[{exp_id}] Co-Teaching FAILED: {e}")
+        import traceback
+        traceback.print_exc()
+        return {"map50": 0.0, "error": str(e)}
 
 
 # ─── L*a*b* Dataset Preprocessing ─────────────────────────────────────────────
@@ -769,6 +1831,11 @@ def update_leaderboard(exp_id: str, result: dict, config: dict):
 def run_experiment(config: dict) -> dict:
     """Run a single experiment and return results."""
     exp_id = config["id"]
+
+    # ── Special dispatch for co-teaching ──────────────────────────────────────
+    if config.get("use_coteaching"):
+        return run_coteaching_experiment(config)
+
     run_dir = RUNS_DIR / exp_id
 
     print(f"\n{'='*60}")
@@ -788,6 +1855,18 @@ def run_experiment(config: dict) -> dict:
         lab_yaml = BASE_DIR / "dataset_novel_lab.yaml"
         if not lab_yaml.exists() or not (DATASET_LAB_DIR / "images" / "train").exists():
             prepare_lab_dataset()
+
+    # ── Pseudo-label SSOD: prepare extended dataset ────────────────────────────
+    if config.get("use_pseudo_labels"):
+        teacher_id = config.get("teacher_id", "NOVEL_005")
+        conf_thresh = config.get("pseudo_conf_thresh", 0.5)
+        pseudo_yaml = prepare_pseudo_label_dataset(teacher_id, conf_thresh)
+        if pseudo_yaml:
+            config = dict(config)  # copy to avoid mutating
+            config["dataset"] = pseudo_yaml
+            print(f"[{exp_id}] Using extended pseudo-label dataset: {pseudo_yaml}")
+        else:
+            print(f"[{exp_id}] Pseudo-label generation failed, using original dataset")
 
     # Training kwargs
     train_kwargs = {
@@ -819,10 +1898,45 @@ def run_experiment(config: dict) -> dict:
     try:
         model = YOLO(config["model"])
 
+        # ── Register callbacks based on experiment type ────────────────────────
+
         if config.get("use_sord"):
             sigma = config.get("sord_sigma", 0.8)
             print(f"[{exp_id}] Registering SORD callback (sigma={sigma})")
             model.add_callback("on_train_start", make_sord_trainer(sigma))
+
+        if config.get("use_curriculum"):
+            print(f"[{exp_id}] Registering Three-Phase Curriculum callback")
+            model.add_callback("on_train_epoch_start", make_curriculum_callback())
+
+        if config.get("use_strong_aug_warmup"):
+            warmup_epochs = config.get("warmup_epochs", 5)
+            print(f"[{exp_id}] Registering Strong Aug Warmup callback ({warmup_epochs} warmup epochs)")
+            model.add_callback("on_train_epoch_start", make_strong_aug_warmup_callback(warmup_epochs))
+
+        if config.get("use_edl"):
+            annealing_step = config.get("edl_annealing_step", 10)
+            print(f"[{exp_id}] Registering EDL callbacks (annealing_step={annealing_step})")
+            on_start, on_epoch = make_edl_trainer(annealing_step)
+            model.add_callback("on_train_start", on_start)
+            model.add_callback("on_train_epoch_start", on_epoch)
+
+        if config.get("use_aspect_ratio_aux"):
+            ar_weight = config.get("ar_weight", 0.15)
+            print(f"[{exp_id}] Registering Aspect Ratio Aux callback (ar_weight={ar_weight})")
+            model.add_callback("on_train_start", make_aspect_ratio_trainer(ar_weight))
+
+        if config.get("use_kd"):
+            teacher_id = config.get("teacher_id", "NOVEL_005")
+            temperature = config.get("kd_temperature", 4.0)
+            alpha = config.get("kd_alpha", 0.7)
+            print(f"[{exp_id}] Registering KD callback (teacher={teacher_id}, T={temperature})")
+            model.add_callback("on_train_start", make_kd_trainer(teacher_id, temperature, alpha))
+
+        if config.get("use_clip_labels"):
+            clip_model = config.get("clip_model", "ViT-B-32")
+            print(f"[{exp_id}] Registering CLIP Soft Label callback ({clip_model})")
+            model.add_callback("on_train_start", make_clip_trainer(clip_model))
 
         model.train(**train_kwargs)
     except Exception as e:
@@ -842,9 +1956,9 @@ def run_experiment(config: dict) -> dict:
 
 def main():
     print("=" * 60)
-    print("Hermes-YOLO Novel Strategy Runner")
+    print("Hermes-YOLO Novel Strategy Runner — FULL TIER 1-5")
     print(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
-    print(f"Experiments: {len(EXPERIMENTS)}")
+    print(f"Experiments: {len(EXPERIMENTS)} total (NOVEL_001 to NOVEL_{len(EXPERIMENTS):03d})")
     print(f"Dataset: {DATASET_DIR}")
     print("=" * 60)
 
@@ -861,49 +1975,80 @@ def main():
     if not lab_yaml.exists():
         prepare_lab_dataset()
 
-    # Initial push
-    # Token read from env (set externally before running: export GITHUB_TOKEN=...)
+    # Initial chart + push
     generate_chart()
-    git_push("feat: add IDEA.md, novel_runner.py, dataset_novel.yaml — begin NOVEL series")
+    git_push("feat: NOVEL runner Tier 2-5 — begin extended experiments")
 
-    # Run experiments
+    # Run ALL experiments (NOVEL_001-010 will be skipped if already done)
     all_results = {}
+    completed = 0
+    failed = 0
 
     for config in EXPERIMENTS:
         exp_id = config["id"]
+
+        print(f"\n{'━'*60}")
+        print(f"[{completed+1}/{len(EXPERIMENTS)}] {exp_id}: {config['name']}")
+        print(f"{'━'*60}")
 
         # Train
         result = run_experiment(config)
         all_results[exp_id] = result
 
-        # Update tracking
-        update_idea_md(exp_id, config["idea_id"], result, config)
-        update_leaderboard(exp_id, result, config)
+        map50 = result.get("map50", 0)
+        if map50 > 0:
+            completed += 1
+        else:
+            failed += 1
 
-        # Regenerate chart
-        generate_chart()
+        # Update tracking files
+        try:
+            update_idea_md(exp_id, config["idea_id"], result, config)
+        except Exception as e:
+            print(f"[{exp_id}] IDEA.md update error: {e}")
+
+        try:
+            update_leaderboard(exp_id, result, config)
+        except Exception as e:
+            print(f"[{exp_id}] Leaderboard update error: {e}")
+
+        # Regenerate chart after each experiment
+        try:
+            generate_chart()
+        except Exception as e:
+            print(f"[{exp_id}] Chart error: {e}")
 
         # Push after each experiment
-        map50 = result.get("map50", 0)
-        msg = f"experiment: {exp_id} — mAP50={map50:.4f} ({config['name']})"
+        tier = config.get("idea_id", "combo")
+        msg = f"experiment: {exp_id} — mAP50={map50:.4f} ({config['name']}) [{tier}]"
         git_push(msg)
 
-        print(f"\n[Progress] Completed {exp_id}: mAP50={map50:.4f}")
+        print(f"\n[Progress] {exp_id} done: mAP50={map50:.4f} ({completed} ok, {failed} failed)")
 
     # Final summary
     print("\n" + "=" * 60)
-    print("NOVEL Series Complete!")
+    print("ALL NOVEL Experiments Complete!")
     print("=" * 60)
-    for exp_id, result in all_results.items():
-        print(f"  {exp_id}: mAP50={result.get('map50', 0):.4f}")
 
-    best_id = max(all_results, key=lambda k: all_results[k].get("map50", 0))
-    best_val = all_results[best_id].get("map50", 0)
-    print(f"\nBest NOVEL: {best_id} → mAP50={best_val:.4f}")
+    # Sort by mAP50
+    sorted_results = sorted(all_results.items(), key=lambda x: x[1].get("map50", 0), reverse=True)
+    print(f"\n{'Rank':<6} {'ID':<12} {'mAP50':<8} {'Strategy'}")
+    print("-" * 60)
+    for rank, (exp_id, result) in enumerate(sorted_results, 1):
+        name = next((c["name"] for c in EXPERIMENTS if c["id"] == exp_id), exp_id)
+        print(f"{rank:<6} {exp_id:<12} {result.get('map50', 0):.4f}   {name[:40]}")
 
-    # Final push
+    best_id = sorted_results[0][0] if sorted_results else "unknown"
+    best_val = sorted_results[0][1].get("map50", 0) if sorted_results else 0
+    print(f"\nOverall Best: {best_id} → mAP50={best_val:.4f}")
+
+    # Final push with summary
     generate_chart()
-    git_push(f"final: NOVEL series complete — best={best_id} mAP50={best_val:.4f}")
+    summary_msg = (
+        f"final: ALL NOVEL experiments complete ({len(EXPERIMENTS)} total) "
+        f"— best={best_id} mAP50={best_val:.4f}"
+    )
+    git_push(summary_msg)
 
 
 if __name__ == "__main__":

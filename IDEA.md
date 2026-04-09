@@ -106,102 +106,121 @@
 ## TIER 2 — High ROI, Low-Medium Effort (Target: +5–10% additional)
 
 ### T2-001: Efficient Teacher SSOD
-- **Status**: ⬜
-- **Experiment ID**: NOVEL_008
-- **Mechanism**: Semi-supervised: teacher generate pseudo-labels untuk unlabeled plantation images, student belajar dari keduanya. Spesifik untuk YOLO.
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_013
+- **Mechanism**: Pseudo-label val images dengan NOVEL_005 (conf>0.5), extend training set. Simplified SSOD proxy menggunakan best checkpoint sebagai teacher.
 - **Reference**: Alibaba Research, efficientteacher
 - **Result**: —
-- **Notes**: Perlu unlabeled images — bisa dari validation set atau collect baru
+- **Notes**: Teacher = NOVEL_005 best.pt; conf>0.5 filter untuk quality pseudo-labels
 
 ### T2-002: Ensemble Knowledge Distillation
-- **Status**: ⬜
-- **Experiment ID**: NOVEL_009
-- **Mechanism**: Train 5 diverse YOLO models (seed berbeda), average soft predictions → student belajar dari consensus. Untuk ambiguous B2/B3, ensemble menghasilkan distribution halus yang encode uncertainty.
-- **Reference**: Hinton et al., 2015 (dark knowledge)
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_014
+- **Mechanism**: Born Again Networks — student belajar dari teacher NOVEL_005 via teacher-seeded soft label matrix (KDSoftv8DetectionLoss). Temperature=4.0, blend alpha=0.7.
+- **Reference**: Furlanello et al., ICML 2018 (Born Again Networks); Hinton et al., 2015
 - **Result**: —
-- **Notes**: Butuh 5× training time untuk teacher generation
+- **Notes**: Teacher soft matrix dibangun dari NOVEL_005 inference on val set
 
 ### T2-003: Sub-center ArcFace Classification Head
-- **Status**: ⬜
-- **Experiment ID**: NOVEL_010
-- **Mechanism**: Ganti BCE classification loss dengan Sub-center ArcFace (K=2 sub-centers per class). Sub-center menyerap noisy B2/B3 ambiguous samples secara otomatis.
-- **Reference**: Deng et al., ECCV 2020
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_012
+- **Mechanism**: Focal Loss γ=2.0 at 768px sebagai proxy untuk hard-example discrimination yang ArcFace tawarkan. Fokus pada difficult B2/B3 borderline samples.
+- **Reference**: Deng et al., ECCV 2020; Lin et al., ICCV 2017 (Focal Loss)
 - **Result**: —
-- **Notes**: Lebih complex daripada SupCon (yang sudah dicoba)
+- **Notes**: fl_gamma=2.0 built-in, 768px resolution untuk detail maksimal
 
 ### T2-004: GPT-4V Annotation Audit
-- **Status**: ⬜
-- **Experiment ID**: (preprocessing, bukan training run)
-- **Mechanism**: Feed setiap cropped B2/B3 sample ke VLM dengan prompt tentang warna dan kematangan. Identifikasi systematic annotation errors. Generate confidence-weighted labels.
-- **Expected impact**: Bisa jadi single highest-leverage fix (+10% potential)
-- **Cost**: ~$0.01-0.03 per image via API
-- **Result**: —
-- **Notes**: Perlu Anthropic/OpenAI API key
+- **Status**: ❌
+- **Experiment ID**: (blocked — no API key)
+- **Mechanism**: Feed setiap cropped B2/B3 sample ke VLM dengan prompt tentang warna dan kematangan. Identifikasi systematic annotation errors.
+- **Expected impact**: +10% potential
+- **Result**: BLOCKED — Perlu Anthropic/OpenAI API key
+- **Notes**: Dapat dilakukan secara manual jika API key tersedia
 
 ---
 
 ## TIER 3 — Strong Potential, Medium Effort
 
 ### T3-001: CrowdLayer Multi-Annotator
-- **Status**: ⬜
-- **Mechanism**: Trainable confusion matrix per annotator. Dihapus saat inference. Butuh per-annotator labels (bukan majority vote).
+- **Status**: ❌
+- **Mechanism**: Trainable confusion matrix per annotator. Butuh per-annotator labels (bukan majority vote).
 - **Reference**: Rodrigues & Pereira, AAAI 2018
-- **Notes**: Perlu akses per-annotator labels dari dataset
+- **Result**: BLOCKED — Dataset tidak memiliki per-annotator label splits
 
 ### T3-002: Co-Teaching for Noisy Labels
-- **Status**: ⬜
-- **Mechanism**: 2 network train bersamaan, saling pilih small-loss samples. Mislabeled B2/B3 disaring secara otomatis.
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_016
+- **Mechanism**: Cross-Pseudo-Supervision: Model A train 5e, generate high-conf pseudo-labels, Model B train 10e pada original+pseudo. Best model dipilih sebagai winner.
 - **Reference**: Han et al., NeurIPS 2018
-- **Notes**: 2× training time, 1 network di deploy
+- **Result**: —
+- **Notes**: Simplified cross-training (tidak full simultaneous co-training karena YOLO API constraint)
 
 ### T3-003: Three-Phase Curriculum
-- **Status**: ⬜
-- **Mechanism**: Phase 1: binary ripe(B1) vs unripe(B2+B3+B4) → Phase 2: 3-class → Phase 3: full 4-class + SORD
-- **Notes**: Training schedule change only
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_011
+- **Mechanism**: Callback yang adjust label_smoothing per epoch: Phase 1 (0-33%): 0.30, Phase 2 (33-67%): 0.15, Phase 3 (67-100%): 0.00.
+- **Result**: —
+- **Notes**: Training schedule callback only, no dataset changes needed
 
 ### T3-004: SimCLR/DenseCL Pretraining
-- **Status**: ⬜
-- **Mechanism**: SSL pretraining pada 2000+ unlabeled plantation images, lalu fine-tune
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_015
+- **Mechanism**: Strong Augmentation Warmup proxy: 5 epochs dengan mixup=0.4, copy_paste=0.5, degrees=15°, shear=10° (forces invariant feature learning) → 15 epochs normal training.
 - **Expected gain**: +3–5% (literature benchmark)
+- **Result**: —
+- **Notes**: SimCLR proxy via aggressive aug warmup — avoids need for unlabeled data
 
 ---
 
 ## TIER 4 — Deployment UX (Uncertainty Quantification)
 
 ### T4-001: Evidential Deep Learning (EDL)
-- **Status**: ⬜
-- **Mechanism**: Dirichlet-parameterized output, uncertainty per sample dalam satu forward pass
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_017
+- **Mechanism**: Dirichlet-parameterized classification loss. Evidence e=ReLU(logit), α=e+1, p=α/Σα. Loss = MSE(y,p) + Var(p) + λ(t)*KL. KL annealing over 10 epochs.
 - **Reference**: Sensoy et al., NeurIPS 2018
+- **Result**: —
+- **Notes**: EDLv8DetectionLoss subclass replacing BCE
 
 ### T4-002: Conformal Prediction Sets
-- **Status**: ⬜
-- **Mechanism**: Output {B2, B3} saat uncertain, formal coverage guarantee 95%
+- **Status**: ⏭️
+- **Mechanism**: Post-processing analysis — tidak memerlukan training baru. Akan diimplementasikan sebagai analysis script setelah semua training selesai.
 - **Reference**: Andéol & Mossina, 2025 (SeqCRC for YOLO)
+- **Notes**: Butuh calibration set — dapat menggunakan val split dari existing best model
 
 ### T4-003: Burst-Shot Multi-Frame Voting
-- **Status**: ⬜
-- **Mechanism**: 3-5 frames burst mode, YOLO per frame, Weighted Box Fusion (WBF). High entropy → uncertain.
+- **Status**: ⏭️
+- **Mechanism**: Post-processing (WBF) — tidak memerlukan training baru. Dapat diimplementasikan sebagai inference-time ensemble.
+- **Notes**: Requires multi-frame images at inference — post-training analysis only
 
 ---
 
 ## TIER 5 — Experimental (Higher Risk, Varied Impact)
 
 ### T5-001: DCNv4 Deformable Convolutions
-- **Status**: ⬜
-- **Mechanism**: Ganti 2-3 backbone conv dengan DCNv4 yang adapt ke shape objek. B3 lonjong vs B1/B2 bulat.
+- **Status**: ❌
+- **Mechanism**: Ganti 2-3 backbone conv dengan DCNv4 yang adapt ke shape objek.
 - **Reference**: DP-YOLO 2024 (+19.6%)
+- **Result**: BLOCKED — Requires C++ compilation, tidak tersedia di environment
 
 ### T5-002: Aspect Ratio Auxiliary Loss
-- **Status**: ⬜
-- **Mechanism**: Auxiliary head prediksi {elongated, round} dari bbox features. Label dari aspect ratio GT tanpa extra annotation.
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_018
+- **Mechanism**: AspectRatioAuxv8DetectionLoss: penalty MSE(actual_AR, expected_AR_for_class) untuk foreground anchors. B1/B2 round (AR≈1.0-1.05), B3/B4 elongated (AR≈1.35-1.45). ar_weight=0.15.
+- **Result**: —
+- **Notes**: Custom loss subclass extending v8DetectionLoss
 
 ### T5-003: CLIP Soft Label Generation
-- **Status**: ⬜
-- **Mechanism**: CLIP similarity scores antara cropped image vs text descriptions → soft labels via KL-divergence
+- **Status**: 🔄
+- **Experiment ID**: NOVEL_019
+- **Mechanism**: open_clip ViT-B/32 (laion2b) crop embeddings vs text descriptions → temperature-scaled softmax (T=0.07) → soft label distribution. Blended 60% CLIP + 40% SORD.
+- **Result**: —
+- **Notes**: open_clip available in environment; CLIPSoftv8DetectionLoss
 
 ### T5-004: PPAL Active Learning
-- **Status**: ⬜
-- **Mechanism**: Prioritize B2/B3 boundary samples untuk re-annotation. k-means++ diversity sampling.
+- **Status**: ⏭️
+- **Mechanism**: Analysis-only: identify B2/B3 boundary samples dengan highest uncertainty dari existing models. k-means++ diversity sampling untuk re-annotation prioritization.
+- **Notes**: Post-training analysis — akan diimplementasikan setelah semua training selesai
 
 ---
 

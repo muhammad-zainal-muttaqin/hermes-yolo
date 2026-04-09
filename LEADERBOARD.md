@@ -71,6 +71,25 @@
 | Architecture swap alone | 0.495 | Dataset is the constraint |
 
 
+## TIER 2-5 Extended Experiments (running...)
+
+| Rank | Experiment | mAP50 | Recall | Precision | Epochs | Strategy | Status |
+|:----:|:-----------|:-----:|:------:|:---------:|:------:|:---------|:-------|
+| — | NOVEL_011 | — | — | — | 0/15 | Three-Phase Curriculum | 🔄 |
+| — | NOVEL_012 | — | — | — | 0/15 | Focal Loss 768px (T2-003) | 🔄 |
+| — | NOVEL_013 | — | — | — | 0/15 | Pseudo-label SSOD (T2-001) | 🔄 |
+| — | NOVEL_014 | — | — | — | 0/15 | Born Again Networks KD (T2-002) | 🔄 |
+| — | NOVEL_015 | — | — | — | 0/20 | Strong Aug Warmup/SimCLR (T3-004) | 🔄 |
+| — | NOVEL_016 | — | — | — | 0/15 | Co-Teaching (T3-002) | 🔄 |
+| — | NOVEL_017 | — | — | — | 0/15 | Evidential Deep Learning (T4-001) | 🔄 |
+| — | NOVEL_018 | — | — | — | 0/15 | Aspect Ratio Aux Loss (T5-002) | 🔄 |
+| — | NOVEL_019 | — | — | — | 0/15 | CLIP Soft Labels (T5-003) | 🔄 |
+| — | NOVEL_020 | — | — | — | 0/20 | 768px + SORD σ=0.5 combo | 🔄 |
+| — | NOVEL_021 | — | — | — | 0/20 | 768px + Label Smoothing combo | 🔄 |
+| — | NOVEL_022 | — | — | — | 0/60 | Extended 60-epoch (T1-005) | 🔄 |
+
+---
+
 ## NOVEL Series Results (15-epoch scout runs)
 
 | Rank | Experiment | mAP50 | Recall | Precision | Epochs | Strategy | Status |
