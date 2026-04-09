@@ -15,6 +15,7 @@
 | 🥉 | BREAK_035 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 4 | BREAK_036 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 5 | BREAK_005–032 | 0.5025 | 0.5871 | — | 10 | Early batch (28 experiments) |
+| - | NOVEL_010 | 0.5076 | 0.5926 | 0.4790 | 15 | SORD sigma=0.5 (tighter ordinal) |
 | - | **NOVEL_005** | **0.5219** | 0.5979 | 0.4886 | 15 | Higher Resolution 768px |
 | - | NOVEL_001 | 0.5185 | 0.5962 | 0.4901 | 15 | Label Smoothing + CosLR |
 | - | NOVEL_002 | 0.5003 | 0.5741 | 0.4781 | 15 | L*a*b* Color Space Input |
@@ -79,5 +80,5 @@
 | 6 | NOVEL_003 | 0.4380 | 0.5245 | 0.4374 | 13/15 | P2 Detection Head | ✅ |
 | 7 | NOVEL_007 | 0.3723 | 0.4968 | 0.3704 | 14/15 | L*a*b* + P2 Head Combo | ✅ |
 | 8 | NOVEL_008 | 0.3827 | 0.4922 | 0.3896 | 14/15 | SORD + P2 Head Combo | ✅ |
-| - | NOVEL_009 | 🔄 — | — | — | 15 | Full Tier 1: LAB+SORD+P2 | 🔄 Running |
-| - | NOVEL_010 | ⬜ — | — | — | 15 | SORD σ=0.5 (tighter) | ⬜ Queued |
+| 9 | NOVEL_009 | 0.3251 | 0.4815 | 0.3282 | 15/15 | Full Tier 1: LAB+SORD+P2 | ✅ |
+| - | NOVEL_010 | 🔄 — | — | — | 15 | SORD σ=0.5 (tighter) | 🔄 Running |

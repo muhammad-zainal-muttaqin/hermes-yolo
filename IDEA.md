@@ -211,6 +211,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_010 | SORD sigma=0.5 (tighter ordinal) | 0.5076 | 0.5926 | 0.4790 | 15/15 | SORD with tighter sigma=0.5 (harder ordinal boundaries) | 2026-04-09 | — |
 | NOVEL_009 | Full Tier 1: L*a*b* + SORD + P2 | 0.3251 | 0.4815 | 0.3282 | 15/15 | Full Tier 1 combo: LAB input + SORD loss + P2 head | 2026-04-09 | — |
 | NOVEL_008 | SORD + P2 Head Combo | 0.3833 | 0.5017 | 0.3833 | 15/15 | SORD ordinal loss + P2 head for small B4 | 2026-04-09 | — |
 | NOVEL_007 | L*a*b* + P2 Head Combo | 0.3723 | 0.4968 | 0.3704 | 14/14 | LAB input + P2 head combo | 2026-04-09 | — |
@@ -231,6 +232,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.3251** (NOVEL_009) |
+| NOVEL Series Best | **0.5076** (NOVEL_010) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
