@@ -212,9 +212,9 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
-| NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | ls=0.15, cos_lr, 640px | 2026-04-09 | — |
-| NOVEL_002 | L*a*b* Color Space Input | **0.5003** | 0.5736 | 0.4827 | 15/15 | LAB input, 640px | 2026-04-09 | — |
-| NOVEL_003 | P2 Detection Head | — | — | — | 🔄 | P2 head, 640px | 2026-04-09 | Running |
+| NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | auto-tracked | 2026-04-09 | — |
+| NOVEL_002 | L*a*b* Color Space Input | **0.4963** | 0.5736 | 0.4827 | 14/14 | auto-tracked | 2026-04-09 | — |
+| NOVEL_003 | P2 Detection Head | **0.4380** | 0.5245 | 0.4374 | 13/14 | auto-tracked | 2026-04-09 | — |
 
 ---
 
