@@ -15,6 +15,17 @@
 | 🥉 | BREAK_035 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 4 | BREAK_036 | 0.5207 | 0.5961 | — | 20 | Tier-2 run |
 | 5 | BREAK_005–032 | 0.5025 | 0.5871 | — | 10 | Early batch (28 experiments) |
+| - | NOVEL_022 | 0.5316 | 0.5954 | 0.4941 | 33 | Extended Training: NOVEL_005 @ 60 epochs |
+| - | NOVEL_021 | 0.5269 | 0.5882 | 0.5081 | 20 | 768px + Label Smoothing 0.15 (Top-2 Combo) |
+| - | NOVEL_020 | 0.5250 | 0.6054 | 0.4888 | 19 | 768px + SORD σ=0.5 (Winning Combo) |
+| - | NOVEL_016 | 0.5021 | 0.5631 | 0.4861 | 10 | Co-Teaching for Noisy Labels (T3-002) |
+| - | NOVEL_015 | 0.5197 | 0.5811 | 0.4957 | 18 | Strong Aug Warmup / SimCLR proxy (T3-004) |
+| - | NOVEL_013 | 0.5252 | 0.5970 | 0.4780 | 14 | Pseudo-label SSOD (T2-001 Efficient Teacher proxy) |
+| - | NOVEL_011 | 0.5185 | 0.5818 | 0.4813 | 15 | Three-Phase Curriculum Learning |
+| - | NOVEL_010 | 0.5076 | 0.5926 | 0.4790 | 15 | SORD sigma=0.5 (tighter ordinal) |
+| - | NOVEL_005 | 0.5219 | 0.5979 | 0.4886 | 15 | Higher Resolution 768px |
+| - | NOVEL_002 | 0.5003 | 0.5741 | 0.4781 | 15 | L*a*b* Color Space Input |
+| - | NOVEL_001 | 0.5185 | 0.5962 | 0.4901 | 15 | Label Smoothing + CosLR |
 | - | **NOVEL_005** | **0.5219** | 0.5979 | 0.4886 | 15 | Higher Resolution 768px ⭐ |
 | - | NOVEL_001 | 0.5185 | 0.5962 | 0.4901 | 15 | Label Smoothing + CosLR |
 | - | NOVEL_010 | 0.5076 | 0.5926 | 0.4790 | 15 | SORD σ=0.5 (tighter ordinal) |
@@ -45,7 +56,7 @@
 | Metric | Value |
 |:-------|:------|
 | Baseline mAP50 | 0.504 (STRUCT_000) |
-| **Current Best** | **0.5298** (BREAK_037, Top-5 Ensemble) |
+| **Current Best** | **0.5316** (NOVEL_022) |
 | Improvement | **+5.1%** from baseline |
 | Target | > 0.55 |
 | Gap to target | 0.020 |

@@ -237,11 +237,12 @@ EXPERIMENTS = [
         "model": "yolov8n.pt",
         "dataset": str(BASE_DIR / "dataset_novel.yaml"),
         "extra_kwargs": {
-            "fl_gamma": 2.0,
             "label_smoothing": 0.05,
             "cos_lr": True,
         },
         "description": "Focal loss γ=2.0 at 768px — hard-example focus proxy for Sub-center ArcFace",
+        "use_fl_gamma": True,
+        "fl_gamma": 2.0,
     },
     {
         "id": "NOVEL_013",
@@ -786,7 +787,10 @@ class AspectRatioAuxv8DetectionLoss(v8DetectionLoss):
 
             # ── Aspect Ratio Auxiliary Loss ────────────────────────────────
             fg_boxes = target_bboxes[fg_mask]       # (num_fg, 4) xyxy, feature-map units
-            fg_boxes_px = fg_boxes * stride_tensor[fg_mask]   # pixel coords
+            # stride_tensor: [8400, 1], fg_mask: [batch, 8400] — expand to batch dim
+            stride_exp = stride_tensor.squeeze(-1).unsqueeze(0).expand(batch_size, -1)  # [batch, 8400]
+            fg_strides = stride_exp[fg_mask].unsqueeze(-1)  # [num_fg, 1]
+            fg_boxes_px = fg_boxes * fg_strides   # pixel coords
             w = (fg_boxes_px[:, 2] - fg_boxes_px[:, 0]).clamp(min=1.0)
             h = (fg_boxes_px[:, 3] - fg_boxes_px[:, 1]).clamp(min=1.0)
             actual_ar = (w / h).clamp(0.5, 3.0)    # (num_fg,) actual w/h
@@ -1184,7 +1188,7 @@ class CLIPSoftv8DetectionLoss(SORDv8DetectionLoss):
         self.blend_alpha = blend_alpha  # weight for CLIP vs SORD
         print(f"[CLIP-SORD] {len(clip_soft_labels)} images with CLIP labels, α(CLIP)={blend_alpha}")
 
-        # Build CLIP-blended soft matrix from CLIP labels
+        # Build CLIP-blended soft matrix from CLIP labels (keep on CPU first, move later)
         nc = 4
         clip_matrix = torch.zeros(nc, nc)
         clip_counts = torch.zeros(nc)
@@ -1196,15 +1200,17 @@ class CLIPSoftv8DetectionLoss(SORDv8DetectionLoss):
                     clip_matrix[ci] += torch.tensor(entry["soft"], dtype=torch.float32)
                     clip_counts[ci] += 1
 
+        # Move to CPU for blending (self.soft_matrix may be on CUDA)
+        sord_cpu = self.soft_matrix.cpu()
         for i in range(nc):
             if clip_counts[i] > 0:
                 clip_matrix[i] /= clip_counts[i]
             else:
                 # Fallback to SORD row
-                clip_matrix[i] = self.soft_matrix[i]
+                clip_matrix[i] = sord_cpu[i]
 
-        # Blend CLIP matrix with SORD matrix
-        blended = blend_alpha * clip_matrix + (1 - blend_alpha) * self.soft_matrix
+        # Blend CLIP matrix with SORD matrix (both on CPU)
+        blended = blend_alpha * clip_matrix + (1 - blend_alpha) * sord_cpu
         # Renormalize rows
         blended = blended / blended.sum(dim=-1, keepdim=True).clamp(min=1e-8)
         self.soft_matrix = blended.to(self.device)
@@ -1749,19 +1755,20 @@ def generate_chart():
 # ─── Git Push ─────────────────────────────────────────────────────────────────
 
 def git_push(message: str):
-    """Stage tracked files and push to GitHub."""
+    """Stage tracked files and push to GitHub.
+
+    Uses remote URL as-is (PAT already embedded in origin URL).
+    Falls back to GITHUB_TOKEN env var only if needed.
+    """
     token = os.environ.get("GITHUB_TOKEN", GITHUB_TOKEN)
-    if not token:
-        print("[Git] No GITHUB_TOKEN, skipping push")
-        return False
-
-    remote_url = f"https://{token}@github.com/muhammad-zainal-muttaqin/Hermes-YOLO.git"
-
-    try:
+    if token:
+        remote_url = f"https://{token}@github.com/muhammad-zainal-muttaqin/Hermes-YOLO.git"
         subprocess.run(
             ["git", "remote", "set-url", "origin", remote_url],
-            cwd=str(BASE_DIR), check=True, capture_output=True
+            cwd=str(BASE_DIR), check=False, capture_output=True
         )
+
+    try:
         subprocess.run(
             ["git", "add", "IDEA.md", "LEADERBOARD.md", "README.md",
              "experiments/visualizations/progress_map50.png",
@@ -1937,6 +1944,14 @@ def run_experiment(config: dict) -> dict:
             clip_model = config.get("clip_model", "ViT-B-32")
             print(f"[{exp_id}] Registering CLIP Soft Label callback ({clip_model})")
             model.add_callback("on_train_start", make_clip_trainer(clip_model))
+
+        if config.get("use_fl_gamma"):
+            fl_gamma_val = config.get("fl_gamma", 2.0)
+            print(f"[{exp_id}] Registering Focal Loss callback (fl_gamma={fl_gamma_val})")
+            def _set_fl_gamma(trainer, _gamma=fl_gamma_val):
+                trainer.args.fl_gamma = _gamma
+                print(f"[FL] fl_gamma set to {_gamma}")
+            model.add_callback("on_pretrain_routine_start", _set_fl_gamma)
 
         model.train(**train_kwargs)
     except Exception as e:

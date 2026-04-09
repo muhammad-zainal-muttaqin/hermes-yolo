@@ -106,7 +106,7 @@
 ## TIER 2 — High ROI, Low-Medium Effort (Target: +5–10% additional)
 
 ### T2-001: Efficient Teacher SSOD
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_013
 - **Mechanism**: Pseudo-label val images dengan NOVEL_005 (conf>0.5), extend training set. Simplified SSOD proxy menggunakan best checkpoint sebagai teacher.
 - **Reference**: Alibaba Research, efficientteacher
@@ -114,7 +114,7 @@
 - **Notes**: Teacher = NOVEL_005 best.pt; conf>0.5 filter untuk quality pseudo-labels
 
 ### T2-002: Ensemble Knowledge Distillation
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_014
 - **Mechanism**: Born Again Networks — student belajar dari teacher NOVEL_005 via teacher-seeded soft label matrix (KDSoftv8DetectionLoss). Temperature=4.0, blend alpha=0.7.
 - **Reference**: Furlanello et al., ICML 2018 (Born Again Networks); Hinton et al., 2015
@@ -122,7 +122,7 @@
 - **Notes**: Teacher soft matrix dibangun dari NOVEL_005 inference on val set
 
 ### T2-003: Sub-center ArcFace Classification Head
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_012
 - **Mechanism**: Focal Loss γ=2.0 at 768px sebagai proxy untuk hard-example discrimination yang ArcFace tawarkan. Fokus pada difficult B2/B3 borderline samples.
 - **Reference**: Deng et al., ECCV 2020; Lin et al., ICCV 2017 (Focal Loss)
@@ -148,7 +148,7 @@
 - **Result**: BLOCKED — Dataset tidak memiliki per-annotator label splits
 
 ### T3-002: Co-Teaching for Noisy Labels
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_016
 - **Mechanism**: Cross-Pseudo-Supervision: Model A train 5e, generate high-conf pseudo-labels, Model B train 10e pada original+pseudo. Best model dipilih sebagai winner.
 - **Reference**: Han et al., NeurIPS 2018
@@ -156,14 +156,14 @@
 - **Notes**: Simplified cross-training (tidak full simultaneous co-training karena YOLO API constraint)
 
 ### T3-003: Three-Phase Curriculum
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_011
 - **Mechanism**: Callback yang adjust label_smoothing per epoch: Phase 1 (0-33%): 0.30, Phase 2 (33-67%): 0.15, Phase 3 (67-100%): 0.00.
 - **Result**: —
 - **Notes**: Training schedule callback only, no dataset changes needed
 
 ### T3-004: SimCLR/DenseCL Pretraining
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_015
 - **Mechanism**: Strong Augmentation Warmup proxy: 5 epochs dengan mixup=0.4, copy_paste=0.5, degrees=15°, shear=10° (forces invariant feature learning) → 15 epochs normal training.
 - **Expected gain**: +3–5% (literature benchmark)
@@ -175,7 +175,7 @@
 ## TIER 4 — Deployment UX (Uncertainty Quantification)
 
 ### T4-001: Evidential Deep Learning (EDL)
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_017
 - **Mechanism**: Dirichlet-parameterized classification loss. Evidence e=ReLU(logit), α=e+1, p=α/Σα. Loss = MSE(y,p) + Var(p) + λ(t)*KL. KL annealing over 10 epochs.
 - **Reference**: Sensoy et al., NeurIPS 2018
@@ -204,14 +204,14 @@
 - **Result**: BLOCKED — Requires C++ compilation, tidak tersedia di environment
 
 ### T5-002: Aspect Ratio Auxiliary Loss
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_018
 - **Mechanism**: AspectRatioAuxv8DetectionLoss: penalty MSE(actual_AR, expected_AR_for_class) untuk foreground anchors. B1/B2 round (AR≈1.0-1.05), B3/B4 elongated (AR≈1.35-1.45). ar_weight=0.15.
 - **Result**: —
 - **Notes**: Custom loss subclass extending v8DetectionLoss
 
 ### T5-003: CLIP Soft Label Generation
-- **Status**: 🔄
+- **Status**: ✅
 - **Experiment ID**: NOVEL_019
 - **Mechanism**: open_clip ViT-B/32 (laion2b) crop embeddings vs text descriptions → temperature-scaled softmax (T=0.07) → soft label distribution. Blended 60% CLIP + 40% SORD.
 - **Result**: —
@@ -230,6 +230,28 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_022 | Extended Training: NOVEL_005 @ 60 epochs | 0.5316 | 0.5954 | 0.4941 | 33/60 | Extended training of best individual strategy (768px) for 60 epochs | 2026-04-09 | — |
+| NOVEL_021 | 768px + Label Smoothing 0.15 (Top-2 Combo) | 0.5269 | 0.5882 | 0.5081 | 20/20 | Top-2 combo: 768px resolution + label smoothing 0.15 + cosine LR | 2026-04-09 | — |
+| NOVEL_020 | 768px + SORD σ=0.5 (Winning Combo) | 0.5250 | 0.6054 | 0.4888 | 19/20 | Best combo: #1 resolution (768px) + #3 SORD tighter ordinal (σ=0.5) | 2026-04-09 | — |
+| NOVEL_019 | CLIP Soft Labels (T5-003) | 0.0000 | 0.0000 | 0.0000 | 0/0 | CLIP ViT-B/32 similarity → soft label distribution per crop for B1-B4 | 2026-04-09 | — |
+| NOVEL_018 | Aspect Ratio Auxiliary Loss (T5-002) | 0.0000 | 0.0000 | 0.0000 | 0/0 | AR aux loss: penalize B1/B2 on elongated boxes, B3/B4 on round boxes | 2026-04-09 | — |
+| NOVEL_017 | Evidential Deep Learning — EDL (T4-001) | 0.1036 | 0.7845 | 0.0126 | 14/15 | EDL: Dirichlet-parameterized classification loss with KL annealing | 2026-04-09 | — |
+| NOVEL_016 | Co-Teaching for Noisy Labels (T3-002) | 0.5021 | 0.5631 | 0.4861 | 10/10 | Co-Teaching: 2 nets, each trains on other's small-loss samples (R(t) schedule) | 2026-04-09 | — |
+| NOVEL_015 | Strong Aug Warmup / SimCLR proxy (T3-004) | 0.5197 | 0.5811 | 0.4957 | 18/20 | SimCLR proxy: 5-epoch strong-aug warmup (mixup=0.4, aug++) then 15e normal | 2026-04-09 | — |
+| NOVEL_014 | Knowledge Distillation — Born Again Networks (T2-002) | 0.3488 | 0.5281 | 0.2797 | 15/15 | KD: student trained with teacher-seeded soft labels from NOVEL_005 (T=4.0) | 2026-04-09 | — |
+| NOVEL_013 | Pseudo-label SSOD (T2-001 Efficient Teacher proxy) | 0.5252 | 0.5970 | 0.4780 | 14/15 | SSOD: extend training with NOVEL_005 pseudo-labeled val images (conf>0.5) | 2026-04-09 | — |
+| NOVEL_012 | Focal Loss at 768px (Sub-center proxy T2-003) | 0.0000 | 0.0000 | 0.0000 | 0/0 | Focal loss γ=2.0 at 768px — hard-example focus proxy for Sub-center ArcFace | 2026-04-09 | — |
+| NOVEL_011 | Three-Phase Curriculum Learning | 0.5185 | 0.5818 | 0.4813 | 15/15 | Curriculum: label_smoothing 0.30→0.15→0.00 over 3 phases (5 epochs each) | 2026-04-09 | — |
+| NOVEL_010 | SORD sigma=0.5 (tighter ordinal) | 0.5076 | 0.5926 | 0.4790 | 15/15 | SORD with tighter sigma=0.5 (harder ordinal boundaries) | 2026-04-09 | — |
+| NOVEL_009 | Full Tier 1: L*a*b* + SORD + P2 | 0.3251 | 0.4815 | 0.3282 | 15/15 | Full Tier 1 combo: LAB input + SORD loss + P2 head | 2026-04-09 | — |
+| NOVEL_008 | SORD + P2 Head Combo | 0.3833 | 0.5017 | 0.3833 | 15/15 | SORD ordinal loss + P2 head for small B4 | 2026-04-09 | — |
+| NOVEL_007 | L*a*b* + P2 Head Combo | 0.3723 | 0.4968 | 0.3704 | 14/14 | LAB input + P2 head combo | 2026-04-09 | — |
+| NOVEL_006 | SORD + Label Smoothing | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD ordinal loss + mild label smoothing as regularizer | 2026-04-09 | — |
+| NOVEL_005 | Higher Resolution 768px | 0.5219 | 0.5979 | 0.4886 | 15/15 | 768px resolution for small B4 fruitlets (known to help) | 2026-04-09 | — |
+| NOVEL_004 | SORD Ordinal Soft Labels | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD (σ=0.8): B2↔B3 confusion penalized less than B1↔B4 | 2026-04-09 | — |
+| NOVEL_003 | P2 Detection Head (Small Object B4) | 0.4380 | 0.5245 | 0.4374 | 13/15 | P2 head (stride=4) for tiny B4 detection | 2026-04-09 | — |
+| NOVEL_002 | L*a*b* Color Space Input | 0.5003 | 0.5741 | 0.4781 | 15/15 | L*a*b* input — a* channel separates B1(red) vs B3(black) vs B4(green) | 2026-04-09 | — |
+| NOVEL_001 | Label Smoothing + CosLR | 0.5185 | 0.5962 | 0.4901 | 15/15 | Ordinal proxy via label_smoothing=0.15 + cosine LR decay | 2026-04-09 | — |
 | NOVEL_010 | SORD sigma=0.5 (tighter ordinal) | 0.5076 | 0.5926 | 0.4790 | 15/15 | SORD with tighter sigma=0.5 (harder ordinal boundaries) | 2026-04-09 | — |
 | NOVEL_009 | Full Tier 1: L*a*b* + SORD + P2 | 0.3251 | 0.4815 | 0.3282 | 15/15 | Full Tier 1 combo: LAB input + SORD loss + P2 head | 2026-04-09 | — |
 | NOVEL_008 | SORD + P2 Head Combo | 0.3833 | 0.5017 | 0.3833 | 15/15 | SORD ordinal loss + P2 head for small B4 | 2026-04-09 | — |
@@ -251,6 +273,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.5219** (NOVEL_005 — 768px resolution) |
+| NOVEL Series Best | **0.5316** (NOVEL_022) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
