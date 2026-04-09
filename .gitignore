@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Model weights (large binary files)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Training run artifacts (keep metrics, skip weights)
+runs/detect/experiments/runs/*/train/weights/
+
+# YOLO auto-generated directories (not experiments)
+/runs/detect/[0-9]*/
+
+# Dataset (not in repo)
+datasets/
+data/
+
+# Logs
+*.log
+experiments/logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+*.env
