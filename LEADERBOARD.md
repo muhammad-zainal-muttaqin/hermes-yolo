@@ -69,3 +69,4 @@
 | - | NOVEL_002 | 0.4963 | 0.5736 | 14/14 | L*a*b* Color Space Input |
 | - | NOVEL_003 | 0.4380 | 0.5245 | 13/14 | P2 Detection Head |
 | - | NOVEL_005 | 0.5177 | 0.5869 | 13/14 | Higher Resolution 768px |
+| - | NOVEL_007 | 0.3723 | 0.4968 | 14/14 | L*a*b* + P2 Head |
