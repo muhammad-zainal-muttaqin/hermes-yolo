@@ -211,19 +211,11 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
-| NOVEL_003 | P2 Detection Head (Small Object B4) | 0.4380 | 0.5245 | 0.4374 | 13/15 | P2 head (stride=4) for tiny B4 detection | 2026-04-09 | — |
-| NOVEL_002 | L*a*b* Color Space Input | 0.5003 | 0.5741 | 0.4781 | 15/15 | L*a*b* input — a* channel separates B1(red) vs B3(black) vs B4(green) | 2026-04-09 | — |
-| NOVEL_001 | Label Smoothing + CosLR | 0.5185 | 0.5962 | 0.4901 | 15/15 | Ordinal proxy via label_smoothing=0.15 + cosine LR decay | 2026-04-09 | — |
-| NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | auto-tracked | 2026-04-09 | — |
-| NOVEL_002 | L*a*b* Color Space Input | **0.4963** | 0.5736 | 0.4827 | 14/14 | auto-tracked | 2026-04-09 | — |
-| NOVEL_003 | P2 Detection Head | **0.4380** | 0.5245 | 0.4374 | 13/14 | auto-tracked | 2026-04-09 | — |
-| NOVEL_004 | SORD Ordinal Soft Labels | ❌ FAILED | — | — | — | SORD σ=0.8 | 2026-04-09 | de_parallel bug (fixed) |
-| NOVEL_005 | Higher Resolution 768px | **0.5177** | 0.5869 | 0.4867 | 13/14 | auto-tracked | 2026-04-09 | — |
-| NOVEL_006 | SORD + Label Smoothing | ❌ FAILED | — | — | — | SORD σ=0.8 + ls=0.1 | 2026-04-09 | de_parallel bug (fixed) |
-| NOVEL_007 | L*a*b* + P2 Head | **0.3723** | 0.4968 | 0.3704 | 14/14 | auto-tracked | 2026-04-09 | — |
-| NOVEL_008 | SORD + P2 Head Combo | ⬜ Queued | — | — | — | yolov8n-p2.yaml, SORD σ=0.8 | — | — |
-| NOVEL_009 | Full Tier 1: LAB+SORD+P2 | ⬜ Queued | — | — | — | yolov8n-p2.yaml, LAB, SORD | — | — |
-| NOVEL_010 | SORD σ=0.5 (tighter ordinal) | ⬜ Queued | — | — | — | yolov8n, SORD σ=0.5 | — | — |
+| NOVEL_001 | Label Smoothing + CosLR | **0.5185** | 0.5962 | 0.4901 | 15/15 | yolov8n, 640px, ls=0.15 | 2026-04-09 | Best NOVEL so far |
+| NOVEL_002 | L*a*b* Color Space Input | **0.5003** | 0.5741 | 0.4781 | 15/15 | yolov8n, LAB dataset, 640px | 2026-04-09 | — |
+| NOVEL_003 | P2 Detection Head | **0.4380** | 0.5245 | 0.4374 | 13/15 | yolov8n-p2.yaml, 640px | 2026-04-09 | Needs more epochs |
+| NOVEL_005 | Higher Resolution 768px | **0.5219** | 0.5979 | 0.4886 | 15/15 | yolov8n, 768px | 2026-04-09 | Close to BREAK_101! |
+| NOVEL_007 | L*a*b* + P2 Head Combo | **0.3723** | 0.4968 | 0.3704 | 14/15 | yolov8n-p2.yaml, LAB, 640px | 2026-04-09 | Complex arch needs more epochs |
 
 ---
 
@@ -233,6 +225,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.4380** (NOVEL_003) |
+| NOVEL Series Best | **0.5219** (NOVEL_005 — 768px resolution) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
