@@ -1,0 +1,14 @@
+path: /workspace/dataset-sawit-lab
+train: images/train
+val: images/val
+test: images/test
+
+nc: 4
+names:
+  0: B1
+  1: B2
+  2: B3
+  3: B4
+
+# L*a*b* encoded: OpenCV LAB format (L=[0,255], a=[0,255], b=[0,255])
+# a* channel: B1(red,high) > B2(transition) > B3(black,~128) > B4(greenish,low)
