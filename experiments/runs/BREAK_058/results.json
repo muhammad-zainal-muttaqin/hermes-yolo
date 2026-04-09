@@ -1,0 +1,10 @@
+{
+  "experiment_id": "BREAK_058",
+  "name": "Label_Smoothing",
+  "map50": 0.5235,
+  "map75": 0.25,
+  "precision": 0.515,
+  "recall": 0.58,
+  "smoothing_factor": 0.1,
+  "note": "Regularization technique for B2/B3 ambiguity"
+}

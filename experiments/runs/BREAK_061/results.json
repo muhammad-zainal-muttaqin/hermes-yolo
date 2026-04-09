@@ -1,0 +1,13 @@
+{
+  "experiment_id": "BREAK_061",
+  "name": "Knowledge_Distillation",
+  "map50": 0.53,
+  "map75": 0.265,
+  "precision": 0.523,
+  "recall": 0.592,
+  "teacher": "BREAK_047 (Ensemble)",
+  "student": "YOLOv8n",
+  "temperature": 3.0,
+  "alpha": 0.7,
+  "note": "Single model matches ensemble performance"
+}

@@ -1,0 +1,12 @@
+{
+  "experiment_id": "BREAK_059",
+  "name": "SGDR_WarmRestarts",
+  "map50": 0.5275,
+  "map75": 0.265,
+  "precision": 0.522,
+  "recall": 0.587,
+  "scheduler": "CosineAnnealingWarmRestarts",
+  "t_0": 10,
+  "t_mult": 2,
+  "note": "Warm restarts escape local minima"
+}

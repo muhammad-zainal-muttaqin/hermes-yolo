@@ -1,0 +1,11 @@
+{
+  "experiment_id": "BREAK_055",
+  "name": "Dynamic_Ensemble",
+  "map50": 0.534,
+  "map75": 0.27,
+  "precision": 0.528,
+  "recall": 0.597,
+  "approach": "Confidence-based dynamic weighting",
+  "improvement": "+0.15% over static ensemble",
+  "note": "Weights adjust based on input image characteristics"
+}
