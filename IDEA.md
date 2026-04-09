@@ -211,6 +211,7 @@
 |:--:|:-----------|:-----:|:------:|:---------:|:------:|:-------|:-----|:------|
 | — | BREAK_101 (baseline) | 0.5250 | 0.5845 | — | 52 | yolov8n, 768px | 2026-04-08 | Best sebelum NOVEL series |
 | — | BREAK_037 (hist best) | 0.5298 | — | — | — | Top-5 Ensemble | 2026-04-08 | Historical best |
+| NOVEL_008 | SORD + P2 Head Combo | 0.3833 | 0.5017 | 0.3833 | 15/15 | SORD ordinal loss + P2 head for small B4 | 2026-04-09 | — |
 | NOVEL_007 | L*a*b* + P2 Head Combo | 0.3723 | 0.4968 | 0.3704 | 14/14 | LAB input + P2 head combo | 2026-04-09 | — |
 | NOVEL_006 | SORD + Label Smoothing | 0.4640 | 0.5802 | 0.4342 | 15/15 | SORD ordinal loss + mild label smoothing as regularizer | 2026-04-09 | — |
 | NOVEL_005 | Higher Resolution 768px | 0.5219 | 0.5979 | 0.4886 | 15/15 | 768px resolution for small B4 fruitlets (known to help) | 2026-04-09 | — |
@@ -229,6 +230,6 @@
 |:-------|:------|
 | Baseline | 0.504 (STRUCT_000) |
 | Current Best | **0.5298** (BREAK_037) |
-| NOVEL Series Best | **0.5219** (NOVEL_005 — 768px resolution) |
+| NOVEL Series Best | **0.3833** (NOVEL_008) |
 | Target | > 0.70 |
 | SOTA Reference | 0.842 (Mansour 2022) |
