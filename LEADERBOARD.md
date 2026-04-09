@@ -59,3 +59,11 @@
 | Test-Time Augmentation (TTA) | 0.504 | No gain for this dataset |
 | Adaptive Label Smoothing | 0.504 | Not the bottleneck |
 | Architecture swap alone | 0.495 | Dataset is the constraint |
+
+
+## NOVEL Series Results (15-epoch scout runs)
+
+| Rank | Experiment | mAP50 | Recall | Epochs | Strategy |
+|:----:|:-----------|:-----:|:------:|:------:|:---------|
+| - | NOVEL_001 | 0.5185 | 0.5962 | 15/15 | Label Smoothing + CosLR |
+| - | NOVEL_002 | 0.4963 | 0.5736 | 14/14 | L*a*b* Color Space Input |
