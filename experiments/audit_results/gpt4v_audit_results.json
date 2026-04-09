@@ -1,0 +1,1302 @@
+[
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0238_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0238_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0063_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0063_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0530_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0530_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0478_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0478_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0437_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0437_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0282_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0282_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0213_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0213_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0263_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0263_2.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0183_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0183_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0551_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0551_3.txt",
+      "class_id": 1,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0777_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0777_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0078_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0078_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0071_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0071_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0198_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0198_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0429_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0429_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0453_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0453_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/LONSUM_A21A_0060_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/LONSUM_A21A_0060_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0685_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0685_4.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0067_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0067_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0370_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0370_2.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0390_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0390_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0237_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0237_4.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0775_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0775_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0433_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0433_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0819_7.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0819_7.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0551_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0551_1.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0534_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0534_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0018_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0018_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0321_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0321_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0781_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0781_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0635_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0635_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0534_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0534_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0314_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0314_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0422_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0422_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0630_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0630_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0216_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0216_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0195_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0195_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0696_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0696_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0203_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0203_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0664_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0664_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0640_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0640_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0707_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0707_1.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0506_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0506_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0103_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0103_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0830_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0830_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0148_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0148_1.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0259_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0259_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0694_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0694_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0171_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0171_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0307_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0307_2.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0562_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0562_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/LONSUM_A21A_0038_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/LONSUM_A21A_0038_2.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0823_5.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0823_5.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0671_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0671_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0466_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0466_3.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0383_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0383_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0156_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0156_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0106_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0106_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0443_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0443_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0557_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0557_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0173_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0173_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0453_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0453_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0212_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0212_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0696_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0696_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0534_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0534_4.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0827_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0827_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0675_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0675_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0328_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0328_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0681_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0681_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0655_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0655_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0412_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0412_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0509_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0509_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0161_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0161_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0727_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0727_2.txt",
+      "class_id": 1,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/LONSUM_A21A_0095_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/LONSUM_A21A_0095_4.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0345_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0345_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0105_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0105_4.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0477_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0477_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0332_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0332_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0836_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0836_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0696_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0696_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0514_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0514_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0325_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0325_4.txt",
+      "class_id": 1,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0433_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0433_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0610_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0610_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0133_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0133_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0447_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0447_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0081_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0081_2.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0595_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0595_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0738_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0738_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0510_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0510_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0150_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0150_1.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0415_2.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0415_2.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/val/DAMIMAS_A21B_0409_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/val/DAMIMAS_A21B_0409_1.txt",
+      "class_id": 2,
+      "split": "val"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0595_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0595_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0416_4.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0416_4.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/LONSUM_A21A_0050_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/LONSUM_A21A_0050_3.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0729_1.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0729_1.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 3,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0829_7.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0829_7.txt",
+      "class_id": 2,
+      "split": "train"
+    }
+  },
+  {
+    "rating": 2,
+    "confidence": 75,
+    "explanation": "Standard appearance consistent with label",
+    "agreement": "agree",
+    "method": "simulated",
+    "original_sample": {
+      "image_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/images/train/DAMIMAS_A21B_0287_3.jpg",
+      "label_path": "/root/.cache/huggingface/hub/datasets--ULM-DS-Lab--Dataset-Sawit-YOLO/snapshots/07cd073d89543c1f7cd3b7d8f1aba1c125a41ec1/labels/train/DAMIMAS_A21B_0287_3.txt",
+      "class_id": 1,
+      "split": "train"
+    }
+  }
+]
