@@ -35,3 +35,8 @@ Thumbs.db
 # Env
 .env
 *.env
+
+# Generated artifacts
+clip_soft_labels.json
+dataset_pseudo/
+pseudo_coteach_*/

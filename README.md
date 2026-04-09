@@ -34,10 +34,10 @@ Detect 4 ripeness classes of oil palm fresh fruit bunches (TBS):
 | Metric | Value |
 |:-------|:------|
 | Baseline mAP50 | 0.504 (STRUCT_000) |
-| **Current Best (single model)** | **0.5316** (NOVEL_022, extended 60-epoch @ 768px) |
-| **Historical Best (ensemble)** | **0.5298** (BREAK_037, Top-5 Ensemble) |
+| **Best single model** | **0.5269** (NOVEL_021, 768px + Label Smoothing 0.15) |
+| **Best ensemble** | **0.5298** (BREAK_037, Top-5 Ensemble) |
 | Total experiments | **153+** (131 BREAK + 22 NOVEL) |
-| Improvement over baseline | **+5.5%** |
+| Improvement over baseline | **+4.5%** |
 | Target | > 0.70 |
 | SOTA reference | 0.842 (Mansour 2022) |
 
@@ -45,20 +45,20 @@ See [LEADERBOARD.md](LEADERBOARD.md) for full rankings.
 
 ---
 
-## NOVEL Series — Top Results
+## NOVEL Series — Top 10
 
 | Rank | Experiment | mAP50 | Strategy | Epochs |
 |:----:|:-----------|:-----:|:---------|:------:|
-| 1 | **NOVEL_022** | **0.5316** | Extended Training 60-epoch @ 768px | 60 |
-| 2 | NOVEL_021 | 0.5269 | 768px + Label Smoothing 0.15 | 20 |
-| 3 | NOVEL_013 | 0.5252 | Pseudo-label SSOD (Efficient Teacher proxy) | 14 |
-| 4 | NOVEL_020 | 0.5250 | 768px + SORD σ=0.5 combo | 19 |
-| 5 | NOVEL_005 | 0.5219 | Higher Resolution 768px | 15 |
-| 6 | NOVEL_001 | 0.5185 | Label Smoothing 0.15 + CosLR | 15 |
-| 7 | NOVEL_011 | 0.5185 | Three-Phase Curriculum (0.30→0.15→0.00) | 15 |
-| 8 | NOVEL_015 | 0.5197 | Strong Aug Warmup / SimCLR proxy | 18 |
-| 9 | NOVEL_016 | 0.5021 | Co-Teaching for Noisy Labels | 10 |
-| 10 | NOVEL_010 | 0.5076 | SORD σ=0.5 (tighter ordinal) | 15 |
+| 1 | **NOVEL_021** | **0.5269** | 768px + Label Smoothing 0.15 | 20 |
+| 2 | NOVEL_013 | 0.5232 | Pseudo-label SSOD | 15 |
+| 3 | NOVEL_020 | 0.5231 | 768px + SORD sigma=0.5 | 20 |
+| 4 | NOVEL_005 | 0.5219 | Higher Resolution 768px | 15 |
+| 4 | NOVEL_012 | 0.5219 | 768px + LabelSmoothing 0.05 + CosLR | 15 |
+| 6 | NOVEL_015 | 0.5192 | Strong Aug Warmup / SimCLR proxy | 20 |
+| 7 | NOVEL_001 | 0.5185 | Label Smoothing 0.15 + CosLR | 15 |
+| 7 | NOVEL_011 | 0.5185 | Three-Phase Curriculum | 15 |
+| 7 | NOVEL_018 | 0.5185 | Aspect Ratio Aux Loss | 15 |
+| 10 | NOVEL_010 | 0.5076 | SORD sigma=0.5 | 15 |
 
 ---
 
@@ -68,24 +68,21 @@ See [LEADERBOARD.md](LEADERBOARD.md) for full rankings.
 
 | Strategy | Best mAP50 | Notes |
 |:---------|:----------:|:------|
-| Extended training (60 epochs, 768px) | 0.5316 | New best — NOVEL_022 |
+| 768px + Label Smoothing 0.15 | 0.5269 | Best single model (NOVEL_021) |
+| Pseudo-label SSOD | 0.5232 | NOVEL_005 as teacher (NOVEL_013) |
+| 768px + SORD sigma=0.5 | 0.5231 | Ordinal + resolution combo (NOVEL_020) |
+| Higher resolution (768px) | 0.5219 | Single strongest individual change (NOVEL_005) |
 | Top-K Ensemble | 0.5298 | Historical best (BREAK_037) |
-| Pseudo-label SSOD | 0.5252 | NOVEL_005 as teacher, conf>0.5 pseudo-labels |
-| 768px + Label Smoothing | 0.5269 | Best combo |
-| Higher resolution (768px) | 0.5219 | Single strongest individual change |
-| Label Smoothing 0.15 + CosLR | 0.5185 | Simple, effective ordinal proxy |
-| Three-Phase Curriculum | 0.5185 | Smooth label schedule (0.30→0.15→0.00) |
 
-**What doesn't work / lessons learned:**
+**What doesn't work:**
 
-| Strategy | Result | Lesson |
-|:---------|:------:|:-------|
-| Test-Time Augmentation (TTA) | 0.504 | No gain for this dataset |
-| Architecture swap alone | 0.495 | Dataset quality is the constraint, not model capacity |
-| Full combo all-at-once (NOVEL_009) | 0.325 | Too many simultaneous changes; each needs more epochs |
-| KD Born Again Networks (15 epochs) | 0.349 | Teacher soft matrix approach needs longer training |
-| EDL (Evidential Deep Learning) | 0.104 | High recall but near-zero precision — Dirichlet loss destabilizes YOLO detection head |
-| P2 Head at 15 epochs | 0.438 | Adds complexity; needs 50+ epochs to converge |
+| Strategy | mAP50 | Lesson |
+|:---------|:-----:|:-------|
+| EDL (Evidential Deep Learning) | 0.1034 | Dirichlet loss destabilizes YOLO detection head |
+| Full combo all-at-once (NOVEL_009) | 0.3251 | Too many simultaneous changes |
+| Born Again Networks KD | 0.3488 | Soft matrix needs much longer training |
+| Extended 60-epoch training | 0.5065 | Overfitting — worse than 15-20 epoch runs |
+| P2 Detection Head | 0.4333 | Adds complexity; dataset is the constraint |
 
 ---
 
@@ -93,11 +90,11 @@ See [LEADERBOARD.md](LEADERBOARD.md) for full rankings.
 
 | Tier | Focus | Experiments | Status |
 |:-----|:------|:-----------|:-------|
-| **TIER 1** | Zero inference cost, training-only | NOVEL_001–010 | ✅ All done |
-| **TIER 2** | High ROI, low-medium effort | NOVEL_011–014 | ✅ Done (012 rerunning) |
+| **TIER 1** | Zero inference cost, training-only | NOVEL_001–010 | ✅ Done |
+| **TIER 2** | High ROI, low-medium effort | NOVEL_011–014 | ✅ Done |
 | **TIER 3** | Strong potential, medium effort | NOVEL_015–016 | ✅ Done |
 | **TIER 4** | Uncertainty quantification | NOVEL_017 | ✅ Done |
-| **TIER 5** | Experimental | NOVEL_018–019 | 🔄 Rerunning after bug fixes |
+| **TIER 5** | Experimental | NOVEL_018–019 | ✅ Done |
 | **Combos** | Best strategies combined | NOVEL_020–022 | ✅ Done |
 
 See [IDEA.md](IDEA.md) for full strategy descriptions and per-experiment analysis.
@@ -108,19 +105,18 @@ See [IDEA.md](IDEA.md) for full strategy descriptions and per-experiment analysi
 
 ```
 Hermes-YOLO/
-├── novel_runner.py              # NOVEL series runner (TIER 1-5, all 22 experiments)
-├── autoresearch.py              # Legacy autonomous research orchestrator
-├── batch_runner.py              # Legacy batch experiment runner
+├── novel_runner.py              # Experiment runner (TIER 1-5, all 22 experiments)
 ├── dataset_novel.yaml           # Dataset config (RGB, 2764 train / 604 val / 624 test)
 ├── dataset_novel_lab.yaml       # Dataset config (L*a*b* color space variant)
 ├── IDEA.md                      # Strategy tracker — all TIER 1-5 ideas + results
 ├── LEADERBOARD.md               # Full experiment rankings
+├── README.md                    # This file
+├── requirements.txt             # Python dependencies
 ├── experiments/
 │   └── visualizations/          # progress_map50.png — auto-updated after each run
-├── runs/detect/experiments/
-│   └── experiments/runs/
-│       └── NOVEL_*/             # Per-experiment weights, results.csv, args.yaml
-└── dataset_pseudo/              # Auto-generated pseudo-labeled dataset (NOVEL_013)
+└── runs/detect/experiments/
+    └── experiments/runs/
+        └── NOVEL_*/             # Per-experiment weights, results.csv, args.yaml
 ```
 
 ---
@@ -132,12 +128,6 @@ pip install -r requirements.txt
 
 # Run all NOVEL experiments (TIER 1-5), sequentially
 python novel_runner.py
-
-# Legacy: run BREAK series experiments
-python autoresearch.py
-
-# Generate visualization charts
-python generate_charts.py
 ```
 
 ---
